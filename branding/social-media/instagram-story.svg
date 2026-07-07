@@ -1,31 +1,64 @@
 <svg width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1080" height="1920" fill="#0A0A0A"/>
-  <rect x="50" y="50" width="980" height="1820" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E2C27"/>
+      <stop offset="60%" stop-color="#141311"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
+    </filter>
+  </defs>
 
-  <text x="540" y="180" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
-        font-size="17" letter-spacing="7" fill="#FFFFFF" opacity="0.75">COFIMO</text>
+  <rect width="1080" height="1920" fill="url(#sky)"/>
 
-  <g stroke="#FFFFFF" stroke-width="1" opacity="0.5">
-    <line x1="240" y1="700" x2="840" y2="700"/>
-    <line x1="240" y1="700" x2="240" y2="1220"/>
-    <line x1="840" y1="700" x2="840" y2="1220"/>
-    <line x1="240" y1="1220" x2="840" y2="1220"/>
-    <line x1="380" y1="700" x2="380" y2="1220"/>
-    <line x1="540" y1="700" x2="540" y2="1220"/>
-    <line x1="700" y1="700" x2="700" y2="1220"/>
-    <line x1="240" y1="860" x2="840" y2="860"/>
-    <line x1="240" y1="1020" x2="840" y2="1020"/>
+  <!-- story progress dashes -->
+  <g fill="#FFFFFF">
+    <rect x="60" y="48" width="290" height="3" opacity="0.9"/>
+    <rect x="364" y="48" width="290" height="3" opacity="0.4"/>
+    <rect x="668" y="48" width="290" height="3" opacity="0.4"/>
   </g>
 
-  <rect x="534" y="1330" width="12" height="12" fill="#FFFFFF" transform="rotate(45 540 1336)"/>
+  <circle cx="540" cy="130" r="26" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="542" y="139" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#FFFFFF">C</text>
 
-  <text x="540" y="1420" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
-        font-size="52" fill="#FFFFFF">Now Available</text>
+  <!-- Cofimo Estate Mark, larger scale for vertical canvas -->
+  <g transform="translate(140,1120) scale(2.9)">
+    <g transform="translate(0,180) scale(1,-1)" opacity="0.16">
+      <rect x="40" y="60" width="320" height="8" fill="#050505"/>
+      <rect x="70" y="68" width="260" height="70" fill="#050505"/>
+    </g>
+    <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.5" opacity="0.35"/>
+    <rect x="99" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="199" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="299" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="40" y="60" width="320" height="8" fill="#050505"/>
+    <rect x="70" y="68" width="260" height="100" fill="#050505"/>
+    <g fill="#F5F3EC" opacity="0.85">
+      <rect x="84" y="80" width="28" height="56"/>
+      <rect x="126" y="80" width="28" height="56"/>
+      <rect x="168" y="80" width="28" height="56"/>
+      <rect x="252" y="80" width="28" height="56"/>
+      <rect x="294" y="80" width="28" height="56"/>
+    </g>
+    <line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/>
+    <ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/>
+  </g>
 
-  <text x="540" y="1480" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
-        font-size="17" letter-spacing="5" fill="#FFFFFF" opacity="0.7">EXCLUSIVE LISTINGS, BY INVITATION</text>
+  <rect width="1080" height="1920" filter="url(#grain)" opacity="0.5"/>
 
-  <line x1="470" y1="1680" x2="610" y2="1680" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
-  <text x="540" y="1730" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
-        font-size="16" letter-spacing="4" fill="#FFFFFF" opacity="0.8">SWIPE UP</text>
+  <!-- bottom card -->
+  <rect x="0" y="1560" width="1080" height="360" fill="#0A0A0A"/>
+  <rect x="60" y="1560" width="960" height="1" fill="#FFFFFF" opacity="0.15"/>
+
+  <rect x="534" y="1608" width="12" height="12" fill="#FFFFFF" transform="rotate(45 540 1614)"/>
+  <text x="540" y="1700" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="50" fill="#FFFFFF">Now Available</text>
+  <text x="540" y="1750" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="16" letter-spacing="4" fill="#FFFFFF" opacity="0.7">EXCLUSIVE LISTINGS, BY INVITATION</text>
+
+  <line x1="470" y1="1830" x2="610" y2="1830" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+  <text x="540" y="1880" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="15" letter-spacing="4" fill="#FFFFFF" opacity="0.85">SWIPE UP</text>
 </svg>

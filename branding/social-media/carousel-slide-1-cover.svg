@@ -5,10 +5,6 @@
       <stop offset="55%" stop-color="#151412"/>
       <stop offset="100%" stop-color="#050505"/>
     </linearGradient>
-    <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.92"/>
-    </linearGradient>
     <filter id="grain">
       <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
       <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
@@ -17,13 +13,12 @@
 
   <rect width="1080" height="1080" fill="url(#sky)"/>
 
-  <!-- Cofimo Estate Mark: dusk villa silhouette, normalized 400x220 box, scaled -->
-  <g transform="translate(140,430) scale(2)">
+  <g transform="translate(90,370) scale(2.35)">
     <g transform="translate(0,180) scale(1,-1)" opacity="0.16">
       <rect x="40" y="60" width="320" height="8" fill="#050505"/>
       <rect x="70" y="68" width="260" height="70" fill="#050505"/>
     </g>
-    <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.6" opacity="0.35"/>
+    <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.5" opacity="0.35"/>
     <rect x="99" y="168" width="2" height="12" fill="#050505"/>
     <rect x="199" y="168" width="2" height="12" fill="#050505"/>
     <rect x="299" y="168" width="2" height="12" fill="#050505"/>
@@ -46,11 +41,14 @@
   <text x="93" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#FFFFFF">C</text>
   <text x="1000" y="96" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" letter-spacing="6" fill="#FFFFFF" opacity="0.85">COFIMO</text>
 
-  <rect x="0" y="740" width="1080" height="340" fill="url(#scrim)"/>
-  <text x="80" y="840" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="6" fill="#FFFFFF" opacity="0.7">NEW LISTING</text>
-  <text x="76" y="905" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#FFFFFF">Parkview Residence</text>
-  <line x1="80" y1="940" x2="330" y2="940" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
-  <text x="80" y="985" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="2" fill="#FFFFFF" opacity="0.85">4 BED &#183; 5 BATH &#183; 6,200 SQ FT</text>
-  <text x="80" y="1015" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="2" fill="#FFFFFF" opacity="0.85">OFFERED AT $8,950,000</text>
-  <text x="1000" y="1015" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFFFFF" opacity="0.55">@COFIMO.REALESTATE</text>
+  <text x="540" y="960" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="40" letter-spacing="4" fill="#FFFFFF">PARKVIEW RESIDENCE</text>
+  <text x="540" y="1000" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="15" letter-spacing="4" fill="#FFFFFF" opacity="0.7">SWIPE TO EXPLORE &#8594;</text>
+
+  <g>
+    <circle cx="516" cy="1044" r="4" fill="#FFFFFF"/>
+    <circle cx="540" cy="1044" r="4" fill="#FFFFFF" opacity="0.35"/>
+    <circle cx="564" cy="1044" r="4" fill="#FFFFFF" opacity="0.35"/>
+  </g>
 </svg>

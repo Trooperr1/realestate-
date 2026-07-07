@@ -1,0 +1,507 @@
+<title>Cofimo — Luxury Real Estate</title>
+<style>
+  :root{
+    --bg: #FAFAF8;
+    --bg-raised: #F1F0EC;
+    --ink: #0B0B0B;
+    --ink-soft: #4A473F;
+    --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14);
+    --line-soft: rgba(11,11,11,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0B0B0B;
+      --bg-raised: #161613;
+      --ink: #F5F3EC;
+      --ink-soft: #C9C6BA;
+      --ink-faint: #78756A;
+      --line: rgba(245,243,236,0.16);
+      --line-soft: rgba(245,243,236,0.09);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0B0B0B; --bg-raised: #161613; --ink: #F5F3EC; --ink-soft: #C9C6BA; --ink-faint: #78756A;
+    --line: rgba(245,243,236,0.16); --line-soft: rgba(245,243,236,0.09);
+  }
+  :root[data-theme="light"]{
+    --bg: #FAFAF8; --bg-raised: #F1F0EC; --ink: #0B0B0B; --ink-soft: #4A473F; --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14); --line-soft: rgba(11,11,11,0.08);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3{ font-family: ui-serif, Georgia, 'Times New Roman', serif; font-weight: 400; margin: 0; }
+  p{ margin: 0; line-height: 1.7; color: var(--ink-soft); }
+  a{ color: inherit; text-decoration: none; }
+  button, input{ font-family: inherit; }
+  ::selection{ background: var(--ink); color: var(--bg); }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation: none !important; transition: none !important; } }
+
+  .wrap{ max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+  @media (max-width: 720px){ .wrap{ padding: 0 24px; } }
+
+  .eyebrow{
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint);
+    margin: 0 0 18px;
+  }
+
+  /* ---------------- Nav ---------------- */
+  header{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+    padding: 26px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: #F5F3EC;
+    transition: background-color .35s ease, padding .35s ease, border-color .35s ease;
+    border-bottom: 1px solid transparent;
+  }
+  @media (max-width: 720px){ header{ padding: 20px 24px; } }
+  header.scrolled{
+    background: rgba(10,10,10,0.92);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 16px 48px;
+    border-bottom-color: rgba(245,243,236,0.12);
+  }
+  .brand{ display: flex; align-items: center; gap: 12px; font-size: 15px; letter-spacing: 0.22em; }
+  .brand svg{ width: 30px; height: 30px; }
+  nav.links{ display: flex; gap: 40px; font-size: 13px; letter-spacing: 0.08em; }
+  nav.links a{ opacity: 0.82; border-bottom: 1px solid transparent; padding-bottom: 4px; }
+  nav.links a:hover, nav.links a:focus-visible{ opacity: 1; border-color: currentColor; }
+  @media (max-width: 780px){ nav.links{ display: none; } }
+  .nav-cta{
+    font-size: 12px; letter-spacing: 0.12em; border: 1px solid rgba(245,243,236,0.5);
+    padding: 10px 20px;
+  }
+  @media (max-width: 780px){ .nav-cta{ display: none; } }
+
+  /* ---------------- Hero ---------------- */
+  .hero{
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    color: #F5F3EC;
+    background: #0B0A08;
+  }
+  .hero svg.scene{ position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-scrim{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.88) 100%);
+  }
+  .hero-content{
+    position: relative; z-index: 2; height: 100%;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 48px 96px;
+  }
+  @media (max-width: 720px){ .hero-content{ padding: 0 24px 72px; } }
+  .hero-content .eyebrow{ color: rgba(245,243,236,0.75); }
+  .hero h1{
+    font-size: clamp(44px, 7vw, 96px);
+    letter-spacing: 0.01em;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .hero-sub{
+    margin-top: 24px; max-width: 46ch; font-size: 17px; color: rgba(245,243,236,0.78);
+  }
+  .hero-actions{ display: flex; align-items: center; gap: 28px; margin-top: 44px; flex-wrap: wrap; }
+  .btn{
+    display: inline-block; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 16px 32px; border: 1px solid rgba(245,243,236,0.6);
+    transition: background-color .25s ease, color .25s ease;
+  }
+  .btn:hover, .btn:focus-visible{ background: #F5F3EC; color: #0B0B0B; }
+  .link-underline{
+    font-size: 13px; letter-spacing: 0.08em; border-bottom: 1px solid rgba(245,243,236,0.5); padding-bottom: 4px;
+  }
+  .link-underline:hover{ border-color: currentColor; }
+  .scroll-cue{
+    position: absolute; right: 48px; bottom: 44px; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    font-size: 11px; letter-spacing: 0.18em; color: rgba(245,243,236,0.6);
+  }
+  .scroll-cue .line{ width: 1px; height: 46px; background: rgba(245,243,236,0.4); }
+  @media (max-width: 720px){ .scroll-cue{ display: none; } }
+
+  /* ---------------- Sections ---------------- */
+  section{ padding: 128px 0; border-bottom: 1px solid var(--line-soft); }
+  @media (max-width: 900px){ section{ padding: 84px 0; } }
+
+  .statement-grid{
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start;
+  }
+  @media (max-width: 860px){ .statement-grid{ grid-template-columns: 1fr; gap: 32px; } }
+  .statement-grid h2{ font-size: clamp(28px, 3.4vw, 42px); line-height: 1.25; text-wrap: balance; }
+  .statement-grid .support{ padding-top: 10px; }
+  .support p + p{ margin-top: 18px; }
+
+  /* ---------------- Listings ---------------- */
+  .section-head{
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
+    margin-bottom: 56px; flex-wrap: wrap;
+  }
+  .section-head h2{ font-size: clamp(28px, 3.2vw, 40px); }
+  .listing-grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+  @media (max-width: 980px){ .listing-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 680px){ .listing-grid{ grid-template-columns: 1fr; } }
+  .listing-card{ border: 1px solid var(--line); }
+  .listing-media{ aspect-ratio: 4/5; background: #0B0A08; overflow: hidden; }
+  .listing-media svg{ width: 100%; height: 100%; display: block; }
+  .listing-body{ padding: 26px 24px 28px; }
+  .listing-body .status{ font-size: 11px; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 10px; }
+  .listing-body h3{ font-size: 23px; margin-bottom: 6px; }
+  .listing-body .addr{ font-size: 13.5px; color: var(--ink-faint); margin-bottom: 18px; }
+  .listing-body .specs{ font-size: 13px; letter-spacing: 0.03em; color: var(--ink-soft); margin-bottom: 18px; }
+  .listing-body .price-row{ display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 16px; }
+  .listing-body .price{ font-variant-numeric: tabular-nums; font-size: 15px; }
+  .listing-body .view{ font-size: 12px; letter-spacing: 0.08em; border-bottom: 1px solid var(--ink-faint); padding-bottom: 2px; }
+  .listing-card:hover .view{ border-color: var(--ink); }
+
+  /* ---------------- Stat band ---------------- */
+  .stat-band{ padding: 0; border-bottom: 1px solid var(--line-soft); }
+  .stat-row{
+    display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  @media (max-width: 760px){ .stat-row{ grid-template-columns: repeat(2,1fr); } }
+  .stat-cell{ padding: 44px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat-cell .num{ font-family: ui-serif, Georgia, serif; font-size: clamp(28px,3vw,38px); font-variant-numeric: tabular-nums; }
+  .stat-cell .label{ margin-top: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+
+  /* ---------------- Testimonial ---------------- */
+  .testimonial{ text-align: center; position: relative; }
+  .testimonial blockquote{
+    margin: 0 auto; max-width: 20ch;
+    font-family: ui-serif, Georgia, serif; font-size: clamp(28px,4vw,46px); line-height: 1.3;
+  }
+  .testimonial cite{ display: block; margin-top: 32px; font-style: normal; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .testimonial .mark{ margin: 0 auto 28px; width: 60px; height: 60px; }
+
+  /* ---------------- Journal ---------------- */
+  .journal-grid{ display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  @media (max-width: 680px){ .journal-grid{ grid-template-columns: 1fr; } }
+  .journal-card{ background: var(--bg); padding: 40px; }
+  .journal-card .cat{ font-size: 11px; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 16px; }
+  .journal-card h3{ font-size: 24px; max-width: 22ch; text-wrap: balance; margin-bottom: 16px; }
+  .journal-card .date{ font-size: 12.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  /* ---------------- Footer ---------------- */
+  footer{ background: #0B0A08; color: #F5F3EC; padding: 88px 0 40px; }
+  .footer-top{
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 48px;
+    padding-bottom: 64px; border-bottom: 1px solid rgba(245,243,236,0.14);
+  }
+  @media (max-width: 860px){ .footer-top{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 520px){ .footer-top{ grid-template-columns: 1fr; } }
+  .footer-brand .brand{ color: #F5F3EC; margin-bottom: 20px; }
+  .footer-brand p{ color: rgba(245,243,236,0.65); max-width: 32ch; font-size: 14.5px; }
+  .newsletter{ display: flex; margin-top: 24px; border-bottom: 1px solid rgba(245,243,236,0.4); max-width: 320px; }
+  .newsletter input{
+    background: transparent; border: none; color: #F5F3EC; padding: 10px 0; flex: 1; font-size: 14px; outline: none;
+  }
+  .newsletter input::placeholder{ color: rgba(245,243,236,0.45); }
+  .newsletter button{
+    background: none; border: none; color: #F5F3EC; font-size: 12px; letter-spacing: 0.1em; cursor: pointer; padding: 10px 4px;
+  }
+  .footer-col h4{ font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,243,236,0.55); margin-bottom: 20px; }
+  .footer-col ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a{ font-size: 14.5px; color: rgba(245,243,236,0.85); }
+  .footer-col a:hover{ color: #FFFFFF; }
+  .footer-bottom{
+    display: flex; justify-content: space-between; align-items: center; padding-top: 32px;
+    font-size: 12px; letter-spacing: 0.06em; color: rgba(245,243,236,0.5); flex-wrap: wrap; gap: 16px;
+  }
+  .social-row{ display: flex; gap: 10px; }
+  .social-row a{
+    width: 34px; height: 34px; border: 1px solid rgba(245,243,236,0.3); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; letter-spacing: 0;
+  }
+  .social-row a:hover{ border-color: rgba(245,243,236,0.8); }
+</style>
+
+<header id="siteHeader">
+  <a href="#top" class="brand">
+    <svg viewBox="0 0 240 240"><circle cx="120" cy="120" r="98" fill="none" stroke="currentColor" stroke-width="2"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="104" fill="currentColor">C</text></svg>
+    COFIMO
+  </a>
+  <nav class="links">
+    <a href="#listings">Listings</a>
+    <a href="#story">Story</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="nav-cta">Private Viewing</a>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0; border:none;">
+    <svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#332F27"/>
+          <stop offset="55%" stop-color="#17150F"/>
+          <stop offset="100%" stop-color="#08070A"/>
+        </linearGradient>
+        <filter id="heroGrain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+          <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.035 0"/>
+        </filter>
+      </defs>
+
+      <rect width="1600" height="900" fill="url(#heroSky)"/>
+
+      <!-- villa, right of center so the left half stays clear for the headline -->
+      <g transform="translate(700,312) scale(1.4)">
+        <g transform="translate(0,180) scale(1,-1)" opacity="0.16">
+          <rect x="40" y="60" width="320" height="8" fill="#050403"/>
+          <rect x="70" y="68" width="260" height="70" fill="#050403"/>
+        </g>
+        <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+        <rect x="99" y="168" width="2" height="12" fill="#050403"/>
+        <rect x="199" y="168" width="2" height="12" fill="#050403"/>
+        <rect x="299" y="168" width="2" height="12" fill="#050403"/>
+        <rect x="40" y="60" width="320" height="8" fill="#050403"/>
+        <rect x="70" y="68" width="260" height="100" fill="#050403"/>
+        <g fill="#F5F3EC" opacity="0.85">
+          <rect x="84" y="80" width="28" height="56"/>
+          <rect x="126" y="80" width="28" height="56"/>
+          <rect x="168" y="80" width="28" height="56"/>
+          <rect x="252" y="80" width="28" height="56"/>
+          <rect x="294" y="80" width="28" height="56"/>
+        </g>
+        <line x1="350" y1="168" x2="350" y2="180" stroke="#050403" stroke-width="2"/>
+        <ellipse cx="350" cy="158" rx="9" ry="17" fill="#050403"/>
+      </g>
+
+      <!-- tower B -->
+      <rect x="1350" y="360" width="70" height="260" fill="#050403"/>
+      <rect x="1350" y="620" width="70" height="260" fill="#050403" opacity="0.15"/>
+      <g fill="#F5F3EC" opacity="0.8">
+        <rect x="1360" y="376" width="12" height="16"/><rect x="1382" y="376" width="12" height="16"/>
+        <rect x="1360" y="408" width="12" height="16"/>
+        <rect x="1382" y="440" width="12" height="16"/>
+        <rect x="1360" y="472" width="12" height="16"/><rect x="1382" y="472" width="12" height="16"/>
+        <rect x="1360" y="504" width="12" height="16"/>
+        <rect x="1382" y="536" width="12" height="16"/>
+        <rect x="1360" y="568" width="12" height="16"/><rect x="1382" y="568" width="12" height="16"/>
+      </g>
+
+      <line x1="0" y1="620" x2="1600" y2="620" stroke="#FFFFFF" stroke-width="0.6" opacity="0.25"/>
+      <rect width="1600" height="900" filter="url(#heroGrain)" opacity="0.45"/>
+    </svg>
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Cofimo &middot; Luxury Real Estate</p>
+      <h1>Real estate, considered.</h1>
+      <p class="hero-sub">A private collection of architecturally significant homes, represented
+      with the same restraint we ask of the properties themselves.</p>
+      <div class="hero-actions">
+        <a href="#listings" class="btn">View Listings</a>
+        <a href="#story" class="link-underline">Our Story</a>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+  </section>
+
+  <section id="story">
+    <div class="wrap statement-grid">
+      <h2>Every address here has already arrived. We simply introduce you to it.</h2>
+      <div class="support">
+        <p>Cofimo represents a small number of homes each year &mdash; by design. Each listing is
+        reviewed for architectural merit, provenance, and privacy before it ever reaches a client,
+        which means every property in this collection has already cleared a standard most never
+        meet.</p>
+        <p>We work by private introduction, not open listing. If a home is right for you, you will
+        hear about it before it is public &mdash; sometimes before it is even for sale.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="listings">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Current Collection</p>
+          <h2>Featured listings.</h2>
+        </div>
+        <a href="#" class="link-underline">View all listings</a>
+      </div>
+
+      <div class="listing-grid">
+        <article class="listing-card">
+          <div class="listing-media">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+              <defs><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2E2C27"/><stop offset="100%" stop-color="#050403"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#s1)"/>
+              <g transform="translate(0,235)">
+                <g transform="translate(0,180) scale(1,-1)" opacity="0.16">
+                  <rect x="40" y="60" width="320" height="8" fill="#050403"/>
+                  <rect x="70" y="68" width="260" height="70" fill="#050403"/>
+                </g>
+                <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+                <rect x="99" y="168" width="2" height="12" fill="#050403"/><rect x="199" y="168" width="2" height="12" fill="#050403"/><rect x="299" y="168" width="2" height="12" fill="#050403"/>
+                <rect x="40" y="60" width="320" height="8" fill="#050403"/>
+                <rect x="70" y="68" width="260" height="100" fill="#050403"/>
+                <g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="listing-body">
+            <p class="status">NEW LISTING</p>
+            <h3>Parkview Residence</h3>
+            <p class="addr">Bel Air, Los Angeles</p>
+            <p class="specs">4 Bed &middot; 5 Bath &middot; 6,200 Sq Ft</p>
+            <div class="price-row"><span class="price">$8,950,000</span><a href="#" class="view">View &#8594;</a></div>
+          </div>
+        </article>
+
+        <article class="listing-card">
+          <div class="listing-media">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+              <defs><linearGradient id="s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#26241F"/><stop offset="100%" stop-color="#050403"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#s2)"/>
+              <rect x="130" y="60" width="140" height="400" fill="#050403"/>
+              <g fill="#F5F3EC" opacity="0.8">
+                <rect x="148" y="86" width="16" height="24"/><rect x="184" y="86" width="16" height="24"/><rect x="220" y="86" width="16" height="24"/>
+                <rect x="148" y="130" width="16" height="24"/><rect x="220" y="130" width="16" height="24"/>
+                <rect x="148" y="174" width="16" height="24"/><rect x="184" y="174" width="16" height="24"/>
+                <rect x="184" y="218" width="16" height="24"/><rect x="220" y="218" width="16" height="24"/>
+                <rect x="148" y="262" width="16" height="24"/><rect x="220" y="262" width="16" height="24"/>
+                <rect x="148" y="306" width="16" height="24"/><rect x="184" y="306" width="16" height="24"/><rect x="220" y="306" width="16" height="24"/>
+                <rect x="184" y="350" width="16" height="24"/>
+                <rect x="148" y="394" width="16" height="24"/><rect x="220" y="394" width="16" height="24"/>
+              </g>
+              <line x1="0" y1="460" x2="400" y2="460" stroke="#FFFFFF" stroke-width="0.5" opacity="0.25"/>
+            </svg>
+          </div>
+          <div class="listing-body">
+            <p class="status">EXCLUSIVE</p>
+            <h3>The Meridian</h3>
+            <p class="addr">Downtown, Miami</p>
+            <p class="specs">3 Bed &middot; 3.5 Bath &middot; 3,400 Sq Ft</p>
+            <div class="price-row"><span class="price">$5,200,000</span><a href="#" class="view">View &#8594;</a></div>
+          </div>
+        </article>
+
+        <article class="listing-card">
+          <div class="listing-media">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="500" fill="#0B0A08"/>
+              <g stroke="#FFFFFF" stroke-width="1" opacity="0.6">
+                <rect x="70" y="90" width="260" height="330"/>
+                <line x1="200" y1="90" x2="200" y2="420"/>
+                <line x1="70" y1="235" x2="330" y2="235"/>
+                <line x1="70" y1="380" x2="330" y2="380"/>
+              </g>
+              <line x1="70" y1="460" x2="330" y2="460" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="listing-body">
+            <p class="status">JUST SOLD</p>
+            <h3>Ocean Terrace House</h3>
+            <p class="addr">Malibu, California</p>
+            <p class="specs">5 Bed &middot; 6 Bath &middot; 7,100 Sq Ft</p>
+            <div class="price-row"><span class="price">Sold</span><a href="#" class="view">View &#8594;</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stat-band">
+    <div class="wrap" style="padding:0;">
+      <div class="stat-row">
+        <div class="stat-cell"><div class="num">$2.4B+</div><div class="label">Transacted Since Founding</div></div>
+        <div class="stat-cell"><div class="num">40</div><div class="label">Private Listings Per Year</div></div>
+        <div class="stat-cell"><div class="num">18</div><div class="label">Countries Represented</div></div>
+        <div class="stat-cell"><div class="num">100%</div><div class="label">By Private Referral</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="wrap">
+      <svg class="mark" viewBox="0 0 240 240"><circle cx="120" cy="120" r="98" fill="none" stroke="var(--ink)" stroke-width="1.5" opacity="0.4"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="104" fill="var(--ink)" opacity="0.4">C</text></svg>
+      <blockquote>&#8220;Home is not a place. It is a standard.&#8221;</blockquote>
+      <cite>Cofimo Luxury Real Estate</cite>
+    </div>
+  </section>
+
+  <section id="journal" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Journal</p>
+          <h2>Notes on living well.</h2>
+        </div>
+        <a href="#" class="link-underline">Read the journal</a>
+      </div>
+      <div class="journal-grid">
+        <a class="journal-card" href="#">
+          <p class="cat">ARCHITECTURE</p>
+          <h3>What makes a floor plan age well</h3>
+          <p class="date">June 2026</p>
+        </a>
+        <a class="journal-card" href="#">
+          <p class="cat">MARKET NOTES</p>
+          <h3>Why privacy is the new price premium</h3>
+          <p class="date">May 2026</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <svg viewBox="0 0 240 240"><circle cx="120" cy="120" r="98" fill="none" stroke="currentColor" stroke-width="2"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="104" fill="currentColor">C</text></svg>
+          COFIMO
+        </a>
+        <p>Luxury real estate, represented with precision. By private introduction only.</p>
+        <form class="newsletter" onsubmit="return false;">
+          <input type="email" placeholder="Your email address" aria-label="Email address"/>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul><li><a href="#listings">Listings</a></li><li><a href="#story">Our Story</a></li><li><a href="#journal">Journal</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Privacy</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul><li><a href="mailto:hello@cofimo.com">hello@cofimo.com</a></li><li><a href="tel:+10000000000">+1 (000) 000-0000</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Cofimo &copy; 2026 &mdash; Black &amp; White Identity System</span>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+</script>
