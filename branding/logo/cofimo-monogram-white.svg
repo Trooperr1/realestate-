@@ -1,0 +1,11 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monogram mark: reverse version for use on black / dark backgrounds -->
+  <rect width="240" height="240" fill="#0A0A0A"/>
+  <circle cx="120" cy="120" r="98" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="120" cy="120" r="90" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="123" y="152" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="104" font-weight="400"
+        fill="#FFFFFF">C</text>
+  <rect x="114" y="34" width="12" height="12" fill="#FFFFFF" transform="rotate(45 120 40)"/>
+</svg>

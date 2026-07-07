@@ -1,0 +1,16 @@
+<svg width="800" height="240" viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Primary wordmark: for use on white / light backgrounds -->
+  <text x="400" y="132" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="92" font-weight="400" letter-spacing="20"
+        fill="#0A0A0A">COFIMO</text>
+
+  <line x1="210" y1="172" x2="378" y2="172" stroke="#0A0A0A" stroke-width="1"/>
+  <rect x="394" y="166" width="12" height="12" fill="#0A0A0A" transform="rotate(45 400 172)"/>
+  <line x1="422" y1="172" x2="590" y2="172" stroke="#0A0A0A" stroke-width="1"/>
+
+  <text x="400" y="208" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="19" font-weight="400" letter-spacing="7"
+        fill="#0A0A0A">LUXURY REAL ESTATE</text>
+</svg>

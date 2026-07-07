@@ -1,0 +1,553 @@
+<title>Cofimo — Brand Guidelines</title>
+<style>
+  :root{
+    --bg: #FAFAF8;
+    --bg-raised: #F1F0EC;
+    --ink: #0B0B0B;
+    --ink-soft: #4A473F;
+    --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14);
+    --line-soft: rgba(11,11,11,0.08);
+    --cover-bg: #0B0B0B;
+    --cover-ink: #FAFAF8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0B0B0B;
+      --bg-raised: #161613;
+      --ink: #F5F3EC;
+      --ink-soft: #C9C6BA;
+      --ink-faint: #78756A;
+      --line: rgba(245,243,236,0.16);
+      --line-soft: rgba(245,243,236,0.09);
+      --cover-bg: #F5F3EC;
+      --cover-ink: #0B0B0B;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0B0B0B;
+    --bg-raised: #161613;
+    --ink: #F5F3EC;
+    --ink-soft: #C9C6BA;
+    --ink-faint: #78756A;
+    --line: rgba(245,243,236,0.16);
+    --line-soft: rgba(245,243,236,0.09);
+    --cover-bg: #F5F3EC;
+    --cover-ink: #0B0B0B;
+  }
+  :root[data-theme="light"]{
+    --bg: #FAFAF8;
+    --bg-raised: #F1F0EC;
+    --ink: #0B0B0B;
+    --ink-soft: #4A473F;
+    --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14);
+    --line-soft: rgba(11,11,11,0.08);
+    --cover-bg: #0B0B0B;
+    --cover-ink: #FAFAF8;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif{ font-family: ui-serif, Georgia, 'Times New Roman', serif; }
+
+  a{ color: inherit; }
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display: grid;
+    grid-template-columns: 260px minmax(0,1fr);
+  }
+  @media (max-width: 900px){
+    .shell{ grid-template-columns: 1fr; }
+    .toc{ display: none; }
+  }
+
+  .toc{
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 48px 28px;
+    border-right: 1px solid var(--line-soft);
+  }
+  .toc-label{
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 18px;
+  }
+  .toc ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: chapter;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .toc li{ counter-increment: chapter; }
+  .toc a{
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 7px 0;
+    border-bottom: 1px solid transparent;
+  }
+  .toc a:hover, .toc a:focus-visible{ color: var(--ink); }
+  .toc a::before{
+    content: counter(chapter, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-faint);
+    font-size: 12px;
+    width: 20px;
+    flex: none;
+  }
+
+  main{ min-width: 0; }
+
+  section{
+    padding: 96px 64px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  @media (max-width: 720px){
+    section{ padding: 64px 24px; }
+  }
+
+  .kicker{
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 20px;
+  }
+  h2{
+    font-family: ui-serif, Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: 0.01em;
+    margin: 0 0 40px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+  p{
+    max-width: 62ch;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-size: 16.5px;
+  }
+
+  /* ---------- Cover ---------- */
+  .cover{
+    background: var(--cover-bg);
+    color: var(--cover-ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 64px;
+    border-bottom: none;
+  }
+  @media (max-width: 720px){ .cover{ padding: 40px 24px; } }
+  .cover-top{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .cover-mid{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .cover-mark{ width: 84px; height: 84px; }
+  .cover-word{
+    font-family: ui-serif, Georgia, 'Times New Roman', serif;
+    font-size: clamp(56px, 11vw, 128px);
+    letter-spacing: 0.06em;
+    margin: 0;
+    font-weight: 400;
+  }
+  .cover-rule{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cover-rule span{ width: 64px; height: 1px; background: currentColor; opacity: 0.5; }
+  .cover-rule i{
+    width: 8px; height: 8px; background: currentColor; transform: rotate(45deg); display: inline-block;
+  }
+  .cover-tag{
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .cover-bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+  }
+
+  /* ---------- Logo specimens ---------- */
+  .specimen-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 720px){ .specimen-grid{ grid-template-columns: 1fr; } }
+  .specimen{
+    border: 1px solid var(--line);
+    padding: 40px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .specimen.on-light{ background: #FAFAF8; }
+  .specimen.on-dark{ background: #0B0B0B; }
+  .specimen svg{ width: 100%; height: auto; max-width: 340px; }
+  .specimen-caption{
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 10px;
+  }
+
+  .rules-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 32px;
+  }
+  @media (max-width: 720px){ .rules-grid{ grid-template-columns: 1fr; } }
+  .rule-card{ border-top: 1px solid var(--line); padding-top: 18px; }
+  .rule-card h4{
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    margin: 0 0 10px; color: var(--ink);
+  }
+  .rule-card p{ font-size: 15px; margin: 0; }
+
+  .dont-row{
+    display: flex; align-items: center; gap: 14px; margin: 10px 0;
+    font-size: 14.5px; color: var(--ink-soft);
+  }
+  .dont-mark{
+    flex: none; width: 20px; height: 20px; border-radius: 50%;
+    border: 1px solid var(--ink-faint);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--ink-faint);
+  }
+
+  /* ---------- Color ---------- */
+  .swatch-row{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 28px;
+  }
+  @media (max-width: 720px){ .swatch-row{ grid-template-columns: repeat(2,1fr); } }
+  .swatch{
+    background: var(--bg);
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  .swatch-chip{ height: 64px; border: 1px solid var(--line); }
+  .swatch-name{ font-size: 14px; }
+  .swatch-hex{
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Type ---------- */
+  .type-row{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding: 22px 0;
+    gap: 24px;
+  }
+  .type-row .sample{ font-family: ui-serif, Georgia, 'Times New Roman', serif; }
+  .type-row .meta{
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .voice-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 32px;
+    margin-top: 32px;
+  }
+  @media (max-width: 720px){ .voice-grid{ grid-template-columns: 1fr; } }
+  .voice-card{ border: 1px solid var(--line); padding: 28px; }
+  .voice-card h4{
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    margin: 0 0 16px; color: var(--ink-faint);
+  }
+  .voice-card ul{ margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .voice-card li{ font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+
+  /* ---------- Applications ---------- */
+  .app-grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 20px;
+  }
+  @media (max-width: 900px){ .app-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .app-grid{ grid-template-columns: 1fr; } }
+  .app-card{ border: 1px solid var(--line); overflow: hidden; }
+  .app-card svg{ display: block; width: 100%; height: auto; }
+  .app-card figcaption{
+    padding: 12px 14px;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+  figure{ margin: 0; }
+
+  footer{
+    padding: 56px 64px 80px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+  }
+  @media (max-width: 720px){ footer{ padding: 40px 24px 60px; flex-direction: column; gap: 10px;} }
+</style>
+
+<div class="shell">
+  <nav class="toc">
+    <p class="toc-label">Cofimo &middot; Brand Book</p>
+    <ol>
+      <li><a href="#positioning">Positioning</a></li>
+      <li><a href="#logo">Logo System</a></li>
+      <li><a href="#clearspace">Clear Space &amp; Misuse</a></li>
+      <li><a href="#color">Color Palette</a></li>
+      <li><a href="#type">Typography</a></li>
+      <li><a href="#voice">Voice &amp; Tone</a></li>
+      <li><a href="#applications">Applications</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section class="cover" id="cover">
+      <div class="cover-top">
+        <span>Brand Guidelines</span>
+        <span>Edition No. 1 &middot; 2026</span>
+      </div>
+      <div class="cover-mid">
+        <svg class="cover-mark" viewBox="0 0 240 240">
+          <circle cx="120" cy="120" r="98" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text x="123" y="152" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="currentColor">C</text>
+        </svg>
+        <h1 class="cover-word">COFIMO</h1>
+        <div class="cover-rule"><span></span><i></i><span></span></div>
+        <p class="cover-tag">Luxury Real Estate</p>
+      </div>
+      <div class="cover-bottom">
+        <span>Black &amp; White Identity System</span>
+        <span>Confidential &mdash; Internal Use</span>
+      </div>
+    </section>
+
+    <section id="positioning">
+      <p class="kicker">01 &middot; Positioning</p>
+      <h2>Quiet confidence, precisely built.</h2>
+      <p>
+        Cofimo represents property at the highest tier of craft and address. The brand does not
+        shout &mdash; it is composed the way its listings are composed: with restraint, exact
+        proportion, and nothing left to chance. Every surface, from a signature to a signboard,
+        should read as considered rather than decorated.
+      </p>
+      <p>
+        The identity is built entirely in black and white. This is not a limitation &mdash; it is the
+        point. A monochrome system reads as timeless, confident, and unmistakably premium, and it
+        keeps every property photograph &mdash; not the logo &mdash; as the most colorful thing on the page.
+      </p>
+    </section>
+
+    <section id="logo">
+      <p class="kicker">02 &middot; Logo System</p>
+      <h2>Wordmark &amp; monogram.</h2>
+      <p style="margin-bottom:40px;">
+        The primary lockup pairs the COFIMO wordmark, set in a serif at wide tracking, with a
+        single diamond mark and the &ldquo;Luxury Real Estate&rdquo; descriptor. The monogram is a
+        reduction for spaces too small for the full lockup &mdash; social avatars, favicons, cufflink-scale
+        signage.
+      </p>
+
+      <div class="specimen-grid">
+        <div>
+          <div class="specimen on-light">
+            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#0A0A0A">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#0A0A0A"/><rect x="394" y="166" width="12" height="12" fill="#0A0A0A" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#0A0A0A"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#0A0A0A">LUXURY REAL ESTATE</text></svg>
+          </div>
+          <p class="specimen-caption">Primary wordmark &mdash; on light</p>
+        </div>
+        <div>
+          <div class="specimen on-dark">
+            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#FFFFFF">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#FFFFFF"/><rect x="394" y="166" width="12" height="12" fill="#FFFFFF" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#FFFFFF"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#FFFFFF">LUXURY REAL ESTATE</text></svg>
+          </div>
+          <p class="specimen-caption">Reverse wordmark &mdash; on dark</p>
+        </div>
+        <div>
+          <div class="specimen on-light">
+            <svg viewBox="0 0 240 240" style="max-width:160px;"><circle cx="120" cy="120" r="98" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="120" cy="120" r="90" fill="none" stroke="#0A0A0A" stroke-width="1"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#0A0A0A">C</text><rect x="114" y="34" width="12" height="12" fill="#0A0A0A" transform="rotate(45 120 40)"/></svg>
+          </div>
+          <p class="specimen-caption">Monogram &mdash; on light</p>
+        </div>
+        <div>
+          <div class="specimen on-dark">
+            <svg viewBox="0 0 240 240" style="max-width:160px;"><circle cx="120" cy="120" r="98" fill="none" stroke="#FFFFFF" stroke-width="1.5"/><circle cx="120" cy="120" r="90" fill="none" stroke="#FFFFFF" stroke-width="1"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#FFFFFF">C</text><rect x="114" y="34" width="12" height="12" fill="#FFFFFF" transform="rotate(45 120 40)"/></svg>
+          </div>
+          <p class="specimen-caption">Monogram &mdash; on dark</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="clearspace">
+      <p class="kicker">03 &middot; Clear Space &amp; Misuse</p>
+      <h2>Give it room to breathe.</h2>
+      <div class="rules-grid">
+        <div class="rule-card">
+          <h4>Clear space</h4>
+          <p>Maintain a minimum margin equal to the height of the diamond mark on every side of the
+          wordmark. Nothing &mdash; text, imagery, edge of frame &mdash; should enter this zone.</p>
+        </div>
+        <div class="rule-card">
+          <h4>Minimum size</h4>
+          <p>Do not reproduce the full wordmark narrower than 160px / 1.5in. Below that width, use
+          the monogram alone.</p>
+        </div>
+      </div>
+      <div style="margin-top:44px;">
+        <div class="dont-row"><span class="dont-mark">&times;</span> Do not recolor the mark &mdash; black and white only, no gradients or tints.</div>
+        <div class="dont-row"><span class="dont-mark">&times;</span> Do not condense, stretch, or rotate the wordmark.</div>
+        <div class="dont-row"><span class="dont-mark">&times;</span> Do not place the black wordmark on a busy or mid-tone photograph.</div>
+        <div class="dont-row"><span class="dont-mark">&times;</span> Do not substitute the serif wordmark with a different typeface.</div>
+      </div>
+    </section>
+
+    <section id="color">
+      <p class="kicker">04 &middot; Color Palette</p>
+      <h2>Two colors. No exceptions.</h2>
+      <p style="margin-bottom:40px;">
+        Cofimo Black and Cofimo White carry the entire system. An off-white and a soft graphite are
+        permitted as backgrounds and secondary text &mdash; never as a substitute for the black or a
+        stand-in accent color.
+      </p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#0A0A0A;"></div>
+          <div><div class="swatch-name">Cofimo Black</div><div class="swatch-hex">#0A0A0A &middot; RGB 10,10,10</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#FFFFFF; border-color:#0A0A0A;"></div>
+          <div><div class="swatch-name">Cofimo White</div><div class="swatch-hex">#FFFFFF &middot; RGB 255,255,255</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#FAFAF8; border-color:#0A0A0A;"></div>
+          <div><div class="swatch-name">Ivory (bg only)</div><div class="swatch-hex">#FAFAF8 &middot; RGB 250,250,248</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#4A473F;"></div>
+          <div><div class="swatch-name">Graphite (text only)</div><div class="swatch-hex">#4A473F &middot; RGB 74,71,63</div></div>
+        </div>
+      </div>
+      <p>Usage ratio: 60&ndash;70% neutral ground (black or white), 25&ndash;35% the opposing neutral for type
+      and line work, up to 5% graphite for supporting captions. Never introduce a third hue.</p>
+    </section>
+
+    <section id="type">
+      <p class="kicker">05 &middot; Typography</p>
+      <h2>Serif for authority. Sans for clarity.</h2>
+      <p style="margin-bottom:8px;">Headlines and the wordmark are set in a classic serif at generous
+      tracking. Supporting copy, labels, and UI text are set in a clean grotesque sans, always in
+      small, evenly tracked caps for eyebrows and captions.</p>
+
+      <div style="margin-top:32px;">
+        <div class="type-row"><span class="sample" style="font-size:44px;">Aa Estate</span><span class="meta">Serif / Display / 44&ndash;96px</span></div>
+        <div class="type-row"><span class="sample" style="font-size:28px;">Parkview Residence</span><span class="meta">Serif / Headline / 24&ndash;32px</span></div>
+        <div class="type-row"><span style="font-size:17px;">Four bedrooms, five baths, 6,200 square feet of considered space.</span><span class="meta">Sans / Body / 15&ndash;17px</span></div>
+        <div class="type-row"><span style="font-size:13px; letter-spacing:0.14em; text-transform:uppercase;">Luxury Real Estate</span><span class="meta">Sans / Eyebrow / 12&ndash;13px, +0.14em</span></div>
+      </div>
+    </section>
+
+    <section id="voice">
+      <p class="kicker">06 &middot; Voice &amp; Tone</p>
+      <h2>Understated, never inflated.</h2>
+      <div class="voice-grid">
+        <div class="voice-card">
+          <h4>We say</h4>
+          <ul>
+            <li>&ldquo;A residence for those who have stopped compromising.&rdquo;</li>
+            <li>&ldquo;Offered at $8,950,000.&rdquo;</li>
+            <li>&ldquo;By private viewing.&rdquo;</li>
+          </ul>
+        </div>
+        <div class="voice-card">
+          <h4>We don&rsquo;t say</h4>
+          <ul>
+            <li>&ldquo;Amazing deal, won&rsquo;t last long!!&rdquo;</li>
+            <li>&ldquo;Cheap price for luxury home.&rdquo;</li>
+            <li>Exclamation points, emoji, or discount language.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="applications" style="border-bottom:none;">
+      <p class="kicker">07 &middot; Applications</p>
+      <h2>Social media templates.</h2>
+      <p style="margin-bottom:36px;">Three ready-to-use post formats and a story template live in
+      <code>/branding/social-media</code>, all built on the same black-and-white system.</p>
+      <div class="app-grid">
+        <figure class="app-card">
+          <svg viewBox="0 0 1080 1080"><rect width="1080" height="1080" fill="#0A0A0A"/><g stroke="#FFFFFF" stroke-width="1" opacity="0.55"><rect x="680" y="140" width="320" height="800"/><line x1="760" y1="140" x2="760" y2="940"/><line x1="840" y1="140" x2="840" y2="940"/><line x1="920" y1="140" x2="920" y2="940"/><line x1="680" y1="240" x2="1000" y2="240"/><line x1="680" y1="340" x2="1000" y2="340"/><line x1="680" y1="440" x2="1000" y2="440"/><line x1="680" y1="540" x2="1000" y2="540"/><line x1="680" y1="640" x2="1000" y2="640"/><line x1="680" y1="740" x2="1000" y2="740"/><line x1="680" y1="840" x2="1000" y2="840"/></g><text x="80" y="470" font-family="Georgia, serif" font-size="34" letter-spacing="6" fill="#FFFFFF" opacity="0.75">NEW LISTING</text><text x="76" y="560" font-family="Georgia, serif" font-size="72" fill="#FFFFFF">Parkview</text><text x="76" y="640" font-family="Georgia, serif" font-size="72" fill="#FFFFFF">Residence</text><line x1="80" y1="700" x2="380" y2="700" stroke="#FFFFFF" opacity="0.6"/><text x="80" y="750" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="3" fill="#FFFFFF" opacity="0.85">4 BED &#183; 5 BATH &#183; 6,200 SQ FT</text><text x="80" y="790" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="3" fill="#FFFFFF" opacity="0.85">OFFERED AT $8,950,000</text></svg>
+          <figcaption>Instagram post &mdash; New Listing</figcaption>
+        </figure>
+        <figure class="app-card">
+          <svg viewBox="0 0 1080 1080"><rect width="1080" height="1080" fill="#FFFFFF"/><rect x="48" y="48" width="984" height="984" fill="none" stroke="#0A0A0A"/><text x="540" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#0A0A0A">&#8220;Home is not a</text><text x="540" y="545" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#0A0A0A">place. It is a</text><text x="540" y="620" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-style="italic" fill="#0A0A0A">standard.&#8221;</text><line x1="440" y1="700" x2="640" y2="700" stroke="#0A0A0A"/><text x="540" y="760" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" letter-spacing="6" fill="#0A0A0A" opacity="0.7">COFIMO LUXURY REAL ESTATE</text></svg>
+          <figcaption>Instagram post &mdash; Brand Quote</figcaption>
+        </figure>
+        <figure class="app-card">
+          <svg viewBox="0 0 1080 1080"><rect width="1080" height="1080" fill="#0A0A0A"/><rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFFFFF" opacity="0.5"/><circle cx="540" cy="400" r="80" fill="none" stroke="#FFFFFF" stroke-width="1.5"/><text x="543" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="82" fill="#FFFFFF">C</text><text x="540" y="580" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="8" fill="#FFFFFF" opacity="0.75">INTRODUCING</text><text x="540" y="670" text-anchor="middle" font-family="Georgia, serif" font-size="88" letter-spacing="16" fill="#FFFFFF">COFIMO</text><line x1="380" y1="712" x2="700" y2="712" stroke="#FFFFFF" opacity="0.6"/><text x="540" y="760" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="6" fill="#FFFFFF" opacity="0.7">LUXURY REAL ESTATE, REDEFINED</text></svg>
+          <figcaption>Instagram post &mdash; Brand Launch</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <footer>
+      <span>Cofimo &copy; 2026</span>
+      <span>Black &amp; White Identity System, Edition No. 1</span>
+    </footer>
+  </main>
+</div>

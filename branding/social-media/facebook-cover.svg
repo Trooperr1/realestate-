@@ -1,0 +1,20 @@
+<svg width="820" height="312" viewBox="0 0 820 312" xmlns="http://www.w3.org/2000/svg">
+  <rect width="820" height="312" fill="#0A0A0A"/>
+
+  <g stroke="#FFFFFF" stroke-width="1" opacity="0.4">
+    <line x1="600" y1="40" x2="780" y2="40"/>
+    <line x1="600" y1="40" x2="600" y2="272"/>
+    <line x1="780" y1="40" x2="780" y2="272"/>
+    <line x1="600" y1="272" x2="780" y2="272"/>
+    <line x1="660" y1="40" x2="660" y2="272"/>
+    <line x1="720" y1="40" x2="720" y2="272"/>
+    <line x1="600" y1="110" x2="780" y2="110"/>
+    <line x1="600" y1="180" x2="780" y2="180"/>
+  </g>
+
+  <text x="60" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="52"
+        letter-spacing="10" fill="#FFFFFF">COFIMO</text>
+  <line x1="62" y1="168" x2="360" y2="168" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+  <text x="60" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16"
+        letter-spacing="5" fill="#FFFFFF" opacity="0.75">LUXURY REAL ESTATE</text>
+</svg>

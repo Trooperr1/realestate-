@@ -1,0 +1,21 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#FFFFFF"/>
+  <rect x="48" y="48" width="984" height="984" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+
+  <rect x="534" y="220" width="12" height="12" fill="#0A0A0A" transform="rotate(45 540 226)"/>
+
+  <text x="540" y="470" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="56" font-weight="400" fill="#0A0A0A">&#8220;Home is not a</text>
+  <text x="540" y="545" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="56" font-weight="400" fill="#0A0A0A">place. It is a</text>
+  <text x="540" y="620" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="56" font-style="italic" fill="#0A0A0A">standard.&#8221;</text>
+
+  <line x1="440" y1="700" x2="640" y2="700" stroke="#0A0A0A" stroke-width="1"/>
+
+  <text x="540" y="760" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="17" letter-spacing="6" fill="#0A0A0A" opacity="0.7">COFIMO LUXURY REAL ESTATE</text>
+
+  <text x="540" y="960" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="14" letter-spacing="4" fill="#0A0A0A" opacity="0.5">@COFIMO.REALESTATE</text>
+</svg>

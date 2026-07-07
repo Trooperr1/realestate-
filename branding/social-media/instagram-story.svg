@@ -1,0 +1,31 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#0A0A0A"/>
+  <rect x="50" y="50" width="980" height="1820" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+
+  <text x="540" y="180" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="17" letter-spacing="7" fill="#FFFFFF" opacity="0.75">COFIMO</text>
+
+  <g stroke="#FFFFFF" stroke-width="1" opacity="0.5">
+    <line x1="240" y1="700" x2="840" y2="700"/>
+    <line x1="240" y1="700" x2="240" y2="1220"/>
+    <line x1="840" y1="700" x2="840" y2="1220"/>
+    <line x1="240" y1="1220" x2="840" y2="1220"/>
+    <line x1="380" y1="700" x2="380" y2="1220"/>
+    <line x1="540" y1="700" x2="540" y2="1220"/>
+    <line x1="700" y1="700" x2="700" y2="1220"/>
+    <line x1="240" y1="860" x2="840" y2="860"/>
+    <line x1="240" y1="1020" x2="840" y2="1020"/>
+  </g>
+
+  <rect x="534" y="1330" width="12" height="12" fill="#FFFFFF" transform="rotate(45 540 1336)"/>
+
+  <text x="540" y="1420" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" fill="#FFFFFF">Now Available</text>
+
+  <text x="540" y="1480" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="17" letter-spacing="5" fill="#FFFFFF" opacity="0.7">EXCLUSIVE LISTINGS, BY INVITATION</text>
+
+  <line x1="470" y1="1680" x2="610" y2="1680" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+  <text x="540" y="1730" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="16" letter-spacing="4" fill="#FFFFFF" opacity="0.8">SWIPE UP</text>
+</svg>

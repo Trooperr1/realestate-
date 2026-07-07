@@ -1,0 +1,19 @@
+<svg width="800" height="240" viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Reverse wordmark: for use on black / dark backgrounds. Shown here on a black
+       artboard so the reverse lockup is reviewable; strip the rect for a transparent asset. -->
+  <rect width="800" height="240" fill="#0A0A0A"/>
+
+  <text x="400" y="132" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="92" font-weight="400" letter-spacing="20"
+        fill="#FFFFFF">COFIMO</text>
+
+  <line x1="210" y1="172" x2="378" y2="172" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="394" y="166" width="12" height="12" fill="#FFFFFF" transform="rotate(45 400 172)"/>
+  <line x1="422" y1="172" x2="590" y2="172" stroke="#FFFFFF" stroke-width="1"/>
+
+  <text x="400" y="208" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="19" font-weight="400" letter-spacing="7"
+        fill="#FFFFFF">LUXURY REAL ESTATE</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#0A0A0A"/>
+
+  <!-- Abstract architectural facade motif (window grid), right third -->
+  <g stroke="#FFFFFF" stroke-width="1" opacity="0.55">
+    <rect x="680" y="140" width="320" height="800"/>
+    <line x1="760" y1="140" x2="760" y2="940"/>
+    <line x1="840" y1="140" x2="840" y2="940"/>
+    <line x1="920" y1="140" x2="920" y2="940"/>
+    <line x1="680" y1="240" x2="1000" y2="240"/>
+    <line x1="680" y1="340" x2="1000" y2="340"/>
+    <line x1="680" y1="440" x2="1000" y2="440"/>
+    <line x1="680" y1="540" x2="1000" y2="540"/>
+    <line x1="680" y1="640" x2="1000" y2="640"/>
+    <line x1="680" y1="740" x2="1000" y2="740"/>
+    <line x1="680" y1="840" x2="1000" y2="840"/>
+  </g>
+
+  <!-- Top mark -->
+  <rect x="512" y="90" width="10" height="10" fill="#FFFFFF" transform="rotate(45 517 95)"/>
+  <text x="80" y="110" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16"
+        letter-spacing="6" fill="#FFFFFF" opacity="0.8">COFIMO &#8212; LUXURY REAL ESTATE</text>
+
+  <!-- Headline -->
+  <text x="80" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="34"
+        letter-spacing="6" fill="#FFFFFF" opacity="0.75">NEW LISTING</text>
+  <text x="76" y="560" font-family="Georgia, 'Times New Roman', serif" font-size="72"
+        font-weight="400" fill="#FFFFFF">Parkview</text>
+  <text x="76" y="640" font-family="Georgia, 'Times New Roman', serif" font-size="72"
+        font-weight="400" fill="#FFFFFF">Residence</text>
+
+  <line x1="80" y1="700" x2="380" y2="700" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+
+  <text x="80" y="750" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18"
+        letter-spacing="3" fill="#FFFFFF" opacity="0.85">4 BED &#183; 5 BATH &#183; 6,200 SQ FT</text>
+  <text x="80" y="790" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18"
+        letter-spacing="3" fill="#FFFFFF" opacity="0.85">OFFERED AT $8,950,000</text>
+
+  <!-- Footer -->
+  <text x="80" y="980" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15"
+        letter-spacing="4" fill="#FFFFFF" opacity="0.6">@COFIMO.REALESTATE</text>
+  <text x="920" y="980" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="15" letter-spacing="4" fill="#FFFFFF" opacity="0.6">COFIMO.COM</text>
+</svg>
