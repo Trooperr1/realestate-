@@ -1,0 +1,32 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.025 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="#FDFCF9"/>
+
+  <text x="540" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="220" fill="#0A0A0A" opacity="0.06">&#8220;</text>
+
+  <text x="540" y="440" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="46" fill="#0A0A0A">They didn&#8217;t sell us a house.</text>
+  <text x="540" y="504" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="46" fill="#0A0A0A">They introduced us to</text>
+  <text x="540" y="568" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="46" font-style="italic" fill="#0A0A0A">where we already belonged.</text>
+
+  <line x1="470" y1="650" x2="610" y2="650" stroke="#0A0A0A" stroke-width="1"/>
+
+  <text x="540" y="700" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="16" letter-spacing="4" fill="#0A0A0A" opacity="0.7">A COFIMO CLIENT</text>
+  <text x="540" y="730" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="13" letter-spacing="3" fill="#0A0A0A" opacity="0.5">BEL AIR, LOS ANGELES</text>
+
+  <text x="540" y="945" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="13" letter-spacing="4" fill="#0A0A0A" opacity="0.5">@COFIMO.REALESTATE</text>
+
+  <rect width="1080" height="1080" filter="url(#grain)" opacity="0.6"/>
+</svg>

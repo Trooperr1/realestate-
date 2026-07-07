@@ -1,0 +1,54 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#332F27"/>
+      <stop offset="55%" stop-color="#17150F"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#sky)"/>
+
+  <circle cx="90" cy="90" r="30" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="93" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#FFFFFF">C</text>
+  <text x="1000" y="96" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" letter-spacing="6" fill="#FFFFFF" opacity="0.85">COFIMO</text>
+
+  <!-- copy block, top -->
+  <text x="80" y="220" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="6" fill="#FFFFFF" opacity="0.7">JUST LISTED</text>
+  <text x="76" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#FFFFFF">Ocean Terrace House</text>
+  <text x="80" y="326" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#FFFFFF" opacity="0.65">Malibu, California</text>
+  <line x1="80" y1="362" x2="330" y2="362" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+  <text x="80" y="404" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="2" fill="#FFFFFF" opacity="0.85">5 BED &#183; 6 BATH &#183; 7,100 SQ FT</text>
+  <text x="80" y="434" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="2" fill="#FFFFFF" opacity="0.85">OFFERED AT $12,500,000</text>
+
+  <!-- villa motif, lower half -->
+  <g transform="translate(140,590) scale(2.3)">
+    <g transform="translate(0,180) scale(1,-1)" opacity="0.16">
+      <rect x="40" y="60" width="320" height="8" fill="#050505"/>
+      <rect x="70" y="68" width="260" height="70" fill="#050505"/>
+    </g>
+    <line x1="0" y1="180" x2="400" y2="180" stroke="#FFFFFF" stroke-width="0.5" opacity="0.35"/>
+    <rect x="99" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="199" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="299" y="168" width="2" height="12" fill="#050505"/>
+    <rect x="40" y="60" width="320" height="8" fill="#050505"/>
+    <rect x="70" y="68" width="260" height="100" fill="#050505"/>
+    <g fill="#F5F3EC" opacity="0.85">
+      <rect x="84" y="80" width="28" height="56"/>
+      <rect x="126" y="80" width="28" height="56"/>
+      <rect x="168" y="80" width="28" height="56"/>
+      <rect x="252" y="80" width="28" height="56"/>
+      <rect x="294" y="80" width="28" height="56"/>
+    </g>
+    <line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/>
+    <ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/>
+  </g>
+
+  <rect width="1080" height="1080" filter="url(#grain)" opacity="0.5"/>
+
+  <text x="1000" y="1015" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" letter-spacing="3" fill="#FFFFFF" opacity="0.55">@COFIMO.REALESTATE</text>
+</svg>

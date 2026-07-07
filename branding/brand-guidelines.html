@@ -299,6 +299,15 @@
   }
 
   /* ---------- Applications ---------- */
+  .showcase-cta{
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    border: 1px solid var(--ink); padding: 22px 28px;
+    text-decoration: none; color: var(--ink);
+    font-size: 15px; letter-spacing: 0.02em;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .showcase-cta:hover, .showcase-cta:focus-visible{ background: var(--ink); color: var(--bg); }
+  .showcase-cta .arrow{ font-size: 18px; }
   .app-grid{
     display: grid;
     grid-template-columns: repeat(3, minmax(0,1fr));
@@ -542,10 +551,16 @@
     <section id="applications" style="border-bottom:none;">
       <p class="kicker">07 &middot; Applications</p>
       <h2>Social media templates.</h2>
-      <p style="margin-bottom:36px;">Nine formats live in <code>/branding/social-media</code> &mdash;
-      feed posts, a 3-slide listing carousel, a story, a Facebook cover, and a LinkedIn banner &mdash;
-      all built around the Cofimo Estate Mark, the illustrated dusk-villa motif used in place of
-      stock photography.</p>
+      <p style="margin-bottom:28px;">Sixteen formats live in <code>/branding/social-media</code> &mdash;
+      feed posts with multiple content examples per type, a 3-slide listing carousel, two story
+      layouts, a Facebook cover, and a LinkedIn banner &mdash; all built around the Cofimo Estate
+      Mark, the illustrated dusk-villa motif used in place of stock photography. This is the
+      largest and most-used part of the system, so it gets its own dedicated page.</p>
+      <a href="../social-media/showcase.html" class="showcase-cta">
+        <span>Open the full Social Media Showcase</span>
+        <span class="arrow">&#8594;</span>
+      </a>
+      <p class="kicker" style="margin:44px 0 24px;">A few examples</p>
       <div class="app-grid">
         <figure class="app-card">
           <svg viewBox="0 0 1080 1080"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2E2C27"/><stop offset="55%" stop-color="#151412"/><stop offset="100%" stop-color="#050505"/></linearGradient><linearGradient id="g1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.92"/></linearGradient></defs><rect width="1080" height="1080" fill="url(#g1)"/><g transform="translate(140,430) scale(2)"><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.6" opacity="0.35"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g></g><circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text><rect x="0" y="740" width="1080" height="340" fill="url(#g1s)"/><text x="80" y="840" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="6" fill="#FFF" opacity="0.7">NEW LISTING</text><text x="76" y="905" font-family="Georgia,serif" font-size="58" fill="#FFF">Parkview Residence</text><text x="80" y="985" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">4 BED &#183; 5 BATH &#183; 6,200 SQ FT</text></svg>
@@ -564,10 +579,11 @@
           <figcaption>Instagram post &mdash; Just Sold</figcaption>
         </figure>
       </div>
-      <p style="margin-top:36px;">Also included: a 3-slide listing <strong>carousel</strong> (cover,
-      interior details, floor plan &amp; specification), a vertical <strong>Instagram story</strong>
-      with progress dashes and a swipe-up card, a <strong>Facebook cover</strong>, and a
-      <strong>LinkedIn banner</strong> &mdash; each reusing the same mark, grain, and dusk gradient.</p>
+      <p style="margin-top:36px;">Also included: two more new-listing layouts, two more quote
+      layouts, an Open House post, a 3-slide listing <strong>carousel</strong> (cover, interior
+      details, floor plan &amp; specification), a second <strong>Instagram story</strong>, a
+      <strong>Facebook cover</strong>, and a <strong>LinkedIn banner</strong> &mdash; see them all
+      in the <a href="../social-media/showcase.html">showcase</a>.</p>
     </section>
 
     <footer>

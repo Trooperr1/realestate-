@@ -12,17 +12,23 @@ A complete black-and-white brand identity for Cofimo.
   - `cofimo-wordmark-white.svg` — reverse wordmark, for dark backgrounds
   - `cofimo-monogram-black.svg` — monogram mark, for light backgrounds (avatars, favicons)
   - `cofimo-monogram-white.svg` — monogram mark, for dark backgrounds
-- **`social-media/`** — nine ready-to-use templates, all built around the "Cofimo Estate
-  Mark" (an illustrated dusk-villa silhouette used in place of stock photography):
-  - `instagram-post-new-listing.svg` — 1080×1080, property listing post
-  - `instagram-post-quote.svg` — 1080×1080, brand quote / tagline post, museum-label frame
-  - `instagram-post-brand-launch.svg` — 1080×1080, launch / announcement post
-  - `instagram-post-just-sold.svg` — 1080×1080, closed-deal announcement
-  - `carousel-slide-1-cover.svg` / `carousel-slide-2-details.svg` / `carousel-slide-3-stats.svg`
-    — 1080×1080 each, a 3-slide listing carousel (cover → interior details → floor plan & spec)
-  - `instagram-story.svg` — 1080×1920, story template with progress dashes and a swipe-up card
-  - `facebook-cover.svg` — 820×312, page cover banner
-  - `linkedin-banner.svg` — 1584×396, company/profile banner
+- **`social-media/`** — the main deliverable: sixteen ready-to-use templates, all built around
+  the "Cofimo Estate Mark" (an illustrated dusk-villa silhouette used in place of stock
+  photography). **Start at [`showcase.html`](social-media/showcase.html)** — a dedicated gallery
+  page showing every format at full size, grouped by category. Open it directly in a browser.
+  - **New Listings** (3 examples) — `instagram-post-new-listing.svg` (standard bottom-panel
+    layout), `instagram-post-new-listing-2.svg` (high-rise/tower variant), `instagram-post-new-listing-3.svg`
+    (top-loaded layout) — all 1080×1080
+  - **Quotes & Statements** (3 examples) — `instagram-post-quote.svg` (museum-label frame on
+    ivory), `instagram-post-quote-2.svg` (dark inverse), `instagram-post-quote-3.svg` (unframed
+    client-testimonial layout) — all 1080×1080
+  - **Announcements** (3 examples) — `instagram-post-brand-launch.svg`, `instagram-post-just-sold.svg`,
+    `instagram-post-open-house.svg` — all 1080×1080
+  - **Stories** (2 examples) — `instagram-story.svg`, `instagram-story-2.svg` — 1080×1920
+  - **Carousel** — `carousel-slide-1-cover.svg` / `carousel-slide-2-details.svg` /
+    `carousel-slide-3-stats.svg` — 1080×1080 each, a 3-slide listing carousel (cover → interior
+    details → floor plan & spec)
+  - **Profile & cover** — `facebook-cover.svg` (820×312), `linkedin-banner.svg` (1584×396)
 - **`website/homepage.html`** — a full self-contained real-estate homepage: sticky nav
   with scroll-triggered state, a cinematic dusk-skyline hero, featured listings, a credibility
   stat band, a testimonial, a journal teaser, and a footer with newsletter signup. Open directly

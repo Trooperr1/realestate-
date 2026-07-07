@@ -1,0 +1,37 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.035 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="#0A0A0A"/>
+
+  <rect x="56" y="56" width="968" height="968" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.7"/>
+  <rect x="72" y="72" width="936" height="936" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <g stroke="#FFFFFF" stroke-width="1">
+    <path d="M56 100 L56 56 L100 56"/>
+    <path d="M980 56 L1024 56 L1024 100"/>
+    <path d="M1024 980 L1024 1024 L980 1024"/>
+    <path d="M100 1024 L56 1024 L56 980"/>
+  </g>
+
+  <circle cx="540" cy="230" r="46" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+  <text x="543" y="246" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="48" fill="#FFFFFF" opacity="0.4">C</text>
+
+  <text x="540" y="480" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" fill="#FFFFFF">&#8220;Some homes are</text>
+  <text x="540" y="555" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" fill="#FFFFFF">inherited.</text>
+  <text x="540" y="630" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" font-style="italic" fill="#FFFFFF">Others are earned.&#8221;</text>
+
+  <text x="540" y="762" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="17" letter-spacing="6" fill="#FFFFFF" opacity="0.7">COFIMO REAL ESTATE</text>
+
+  <text x="540" y="945" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="13" letter-spacing="4" fill="#FFFFFF" opacity="0.5">@COFIMO.REALESTATE</text>
+
+  <rect width="1080" height="1080" filter="url(#grain)" opacity="0.6"/>
+</svg>

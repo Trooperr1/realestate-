@@ -1,0 +1,455 @@
+<title>Cofimo — Social Media Templates</title>
+<style>
+  :root{
+    --bg: #FAFAF8;
+    --bg-raised: #F1F0EC;
+    --ink: #0B0B0B;
+    --ink-soft: #4A473F;
+    --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14);
+    --line-soft: rgba(11,11,11,0.08);
+    --card-bg: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0B0B0B; --bg-raised: #161613; --ink: #F5F3EC; --ink-soft: #C9C6BA; --ink-faint: #78756A;
+      --line: rgba(245,243,236,0.16); --line-soft: rgba(245,243,236,0.09); --card-bg: #161613;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0B0B0B; --bg-raised: #161613; --ink: #F5F3EC; --ink-soft: #C9C6BA; --ink-faint: #78756A;
+    --line: rgba(245,243,236,0.16); --line-soft: rgba(245,243,236,0.09); --card-bg: #161613;
+  }
+  :root[data-theme="light"]{
+    --bg: #FAFAF8; --bg-raised: #F1F0EC; --ink: #0B0B0B; --ink-soft: #4A473F; --ink-faint: #8A8678;
+    --line: rgba(11,11,11,0.14); --line-soft: rgba(11,11,11,0.08); --card-bg: #FFFFFF;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2{ font-family: ui-serif, Georgia, 'Times New Roman', serif; font-weight: 400; margin: 0; }
+  p{ margin: 0; line-height: 1.7; color: var(--ink-soft); }
+  code{
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em;
+    background: var(--bg-raised); padding: 2px 6px; border-radius: 3px;
+  }
+
+  header.top{
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px; background: var(--bg); border-bottom: 1px solid var(--line-soft);
+  }
+  @media (max-width: 720px){ header.top{ padding: 16px 20px; } }
+  .brand{ display: flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: 0.2em; }
+  .brand svg{ width: 26px; height: 26px; }
+  nav.jump{ display: flex; gap: 28px; font-size: 12.5px; letter-spacing: 0.06em; flex-wrap: wrap; }
+  nav.jump a{ color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px; }
+  nav.jump a:hover{ color: var(--ink); border-color: var(--ink); }
+  @media (max-width: 900px){ nav.jump{ display: none; } }
+
+  .hero{ padding: 96px 48px 72px; max-width: 900px; }
+  @media (max-width: 720px){ .hero{ padding: 56px 24px 48px; } }
+  .eyebrow{ font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 18px; }
+  .hero h1{ font-size: clamp(34px, 5vw, 56px); text-wrap: balance; max-width: 16ch; }
+  .hero p.lede{ margin-top: 24px; font-size: 18px; max-width: 56ch; }
+
+  section.cat{ padding: 64px 48px 24px; border-top: 1px solid var(--line-soft); }
+  @media (max-width: 720px){ section.cat{ padding: 48px 20px 12px; } }
+  .cat-head{ display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+  .cat-head h2{ font-size: clamp(24px, 3vw, 32px); }
+  .cat-head .count{ font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
+  .cat-note{ max-width: 62ch; margin-bottom: 40px; }
+
+  .grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; padding-bottom: 56px; }
+  @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 620px){ .grid{ grid-template-columns: 1fr; } }
+  .grid.stories{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 980px){ .grid.stories{ grid-template-columns: repeat(2,1fr); } }
+  .grid.wide{ grid-template-columns: 1fr; }
+
+  .card{ border: 1px solid var(--line); background: var(--card-bg); }
+  .card .art{ aspect-ratio: 1 / 1; overflow: hidden; }
+  .card.story .art{ aspect-ratio: 9 / 16; max-width: 260px; margin: 0 auto; }
+  .card.wide .art{ aspect-ratio: 820 / 312; }
+  .card.wide.linkedin .art{ aspect-ratio: 1584 / 396; }
+  .card .art svg{ width: 100%; height: 100%; display: block; }
+  .card .meta{ padding: 18px 20px 22px; }
+  .card .meta h3{ font-family: ui-serif, Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 18px; margin: 0 0 6px; }
+  .card .meta p{ font-size: 13px; margin: 0; }
+  .card .meta code{ font-size: 11.5px; }
+
+  .filmstrip{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 2px; background: var(--line); border: 1px solid var(--line); margin-bottom: 20px; }
+  @media (max-width: 760px){ .filmstrip{ grid-template-columns: 1fr; } }
+  .filmstrip .slide{ background: var(--card-bg); position: relative; }
+  .filmstrip .slide .art{ aspect-ratio: 1/1; }
+  .filmstrip .slide .art svg{ width: 100%; height: 100%; display: block; }
+  .filmstrip .slide .tag{
+    position: absolute; top: 14px; left: 14px; font-size: 11px; letter-spacing: 0.1em;
+    color: #F5F3EC; background: rgba(0,0,0,0.55); padding: 4px 9px;
+  }
+  .filmstrip-caption{ padding-bottom: 56px; max-width: 62ch; }
+
+  footer{ padding: 56px 48px 80px; border-top: 1px solid var(--line-soft); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+</style>
+
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 240 240"><circle cx="120" cy="120" r="98" fill="none" stroke="currentColor" stroke-width="2"/><text x="123" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="104" fill="currentColor">C</text></svg>
+    COFIMO
+  </div>
+  <nav class="jump">
+    <a href="#listings">New Listings</a>
+    <a href="#quotes">Quotes</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#stories">Stories</a>
+    <a href="#carousel">Carousel</a>
+    <a href="#profile">Profile &amp; Cover</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <p class="eyebrow">Social Media Templates</p>
+  <h1>Sixteen formats, one system.</h1>
+  <p class="lede">Every template here is built from the same three ingredients: the wordmark,
+  the diamond mark, and the Cofimo Estate Mark &mdash; an illustrated dusk-villa motif used in
+  place of stock photography. Swap in real listing content and export straight from the SVG.</p>
+</div>
+
+<section class="cat" id="listings">
+  <div class="cat-head"><h2>New Listings</h2><span class="count">3 examples &middot; 1080&times;1080</span></div>
+  <p class="cat-note">The core listing post, in three layouts: bottom copy panel over the Estate
+  Mark, a tower variant for high-rise listings, and a top-loaded layout for when the copy needs
+  more room.</p>
+  <div class="grid">
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="a1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2E2C27"/><stop offset="55%" stop-color="#151412"/><stop offset="100%" stop-color="#050505"/></linearGradient><linearGradient id="a1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.92"/></linearGradient></defs>
+          <rect width="1080" height="1080" fill="url(#a1)"/>
+          <g transform="translate(140,430) scale(2)"><g transform="translate(0,180) scale(1,-1)" opacity="0.16"><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="70" fill="#050505"/></g><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.6" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#050505"/><rect x="199" y="168" width="2" height="12" fill="#050505"/><rect x="299" y="168" width="2" height="12" fill="#050505"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g><line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/><ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/></g>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <rect x="0" y="740" width="1080" height="340" fill="url(#a1s)"/>
+          <text x="80" y="840" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="6" fill="#FFF" opacity="0.7">NEW LISTING</text>
+          <text x="76" y="905" font-family="Georgia,serif" font-size="58" fill="#FFF">Parkview Residence</text>
+          <line x1="80" y1="940" x2="330" y2="940" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+          <text x="80" y="985" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">4 BED &#183; 5 BATH &#183; 6,200 SQ FT</text>
+          <text x="80" y="1015" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">OFFERED AT $8,950,000</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Parkview Residence</h3><p>Standard layout &middot; <code>instagram-post-new-listing.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="a2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#26241F"/><stop offset="55%" stop-color="#131210"/><stop offset="100%" stop-color="#050505"/></linearGradient><linearGradient id="a2s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.92"/></linearGradient></defs>
+          <rect width="1080" height="1080" fill="url(#a2)"/>
+          <rect x="450" y="230" width="180" height="610" fill="#050403"/>
+          <g fill="#F5F3EC" opacity="0.8"><rect x="470" y="270" width="20" height="30"/><rect x="510" y="270" width="20" height="30"/><rect x="550" y="270" width="20" height="30"/><rect x="470" y="330" width="20" height="30"/><rect x="550" y="330" width="20" height="30"/><rect x="470" y="390" width="20" height="30"/><rect x="510" y="390" width="20" height="30"/><rect x="510" y="450" width="20" height="30"/><rect x="550" y="450" width="20" height="30"/><rect x="470" y="510" width="20" height="30"/><rect x="550" y="510" width="20" height="30"/><rect x="470" y="570" width="20" height="30"/><rect x="510" y="570" width="20" height="30"/><rect x="550" y="570" width="20" height="30"/><rect x="510" y="630" width="20" height="30"/><rect x="470" y="690" width="20" height="30"/><rect x="550" y="690" width="20" height="30"/><rect x="470" y="750" width="20" height="30"/><rect x="510" y="750" width="20" height="30"/></g>
+          <line x1="0" y1="840" x2="1080" y2="840" stroke="#FFF" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <rect x="0" y="740" width="1080" height="340" fill="url(#a2s)"/>
+          <text x="80" y="840" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="6" fill="#FFF" opacity="0.7">EXCLUSIVE</text>
+          <text x="76" y="905" font-family="Georgia,serif" font-size="58" fill="#FFF">The Meridian</text>
+          <line x1="80" y1="940" x2="330" y2="940" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+          <text x="80" y="985" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">3 BED &#183; 3.5 BATH &#183; 3,400 SQ FT</text>
+          <text x="80" y="1015" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">OFFERED AT $5,200,000</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>The Meridian</h3><p>High-rise variant &middot; <code>instagram-post-new-listing-2.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="a3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#332F27"/><stop offset="55%" stop-color="#17150F"/><stop offset="100%" stop-color="#050505"/></linearGradient></defs>
+          <rect width="1080" height="1080" fill="url(#a3)"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <text x="80" y="220" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="6" fill="#FFF" opacity="0.7">JUST LISTED</text>
+          <text x="76" y="290" font-family="Georgia,serif" font-size="58" fill="#FFF">Ocean Terrace House</text>
+          <text x="80" y="326" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#FFF" opacity="0.65">Malibu, California</text>
+          <line x1="80" y1="362" x2="330" y2="362" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+          <text x="80" y="404" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">5 BED &#183; 6 BATH &#183; 7,100 SQ FT</text>
+          <text x="80" y="434" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">OFFERED AT $12,500,000</text>
+          <g transform="translate(140,590) scale(2.3)"><g transform="translate(0,180) scale(1,-1)" opacity="0.16"><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="70" fill="#050505"/></g><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.5" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#050505"/><rect x="199" y="168" width="2" height="12" fill="#050505"/><rect x="299" y="168" width="2" height="12" fill="#050505"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g><line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/><ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/></g>
+          <text x="1000" y="1015" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13" letter-spacing="3" fill="#FFF" opacity="0.55">@COFIMO.REALESTATE</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Ocean Terrace House</h3><p>Top-loaded layout &middot; <code>instagram-post-new-listing-3.svg</code></p></div>
+    </article>
+  </div>
+</section>
+
+<section class="cat" id="quotes">
+  <div class="cat-head"><h2>Quotes &amp; Statements</h2><span class="count">3 examples &middot; 1080&times;1080</span></div>
+  <p class="cat-note">Brand-voice posts for the days between listings &mdash; a museum-label frame
+  on ivory, its dark inverse, and an unframed client-testimonial layout for social proof.</p>
+  <div class="grid">
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#FDFCF9"/>
+          <rect x="56" y="56" width="968" height="968" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+          <rect x="72" y="72" width="936" height="936" fill="none" stroke="#0A0A0A" stroke-width="0.5" opacity="0.4"/>
+          <g stroke="#0A0A0A" stroke-width="1"><path d="M56 100 L56 56 L100 56"/><path d="M980 56 L1024 56 L1024 100"/><path d="M1024 980 L1024 1024 L980 1024"/><path d="M100 1024 L56 1024 L56 980"/></g>
+          <circle cx="540" cy="230" r="46" fill="none" stroke="#0A0A0A" stroke-width="1" opacity="0.35"/><text x="543" y="246" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#0A0A0A" opacity="0.35">C</text>
+          <text x="540" y="470" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">&#8220;Home is not a</text>
+          <text x="540" y="548" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">place. It is a</text>
+          <text x="540" y="626" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-style="italic" fill="#0A0A0A">standard.&#8221;</text>
+          <text x="540" y="762" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="6" fill="#0A0A0A" opacity="0.7">COFIMO REAL ESTATE</text>
+          <text x="540" y="945" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" letter-spacing="4" fill="#0A0A0A" opacity="0.5">@COFIMO.REALESTATE</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>&ldquo;A standard.&rdquo;</h3><p>Museum-label frame &middot; <code>instagram-post-quote.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#0A0A0A"/>
+          <rect x="56" y="56" width="968" height="968" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+          <rect x="72" y="72" width="936" height="936" fill="none" stroke="#FFF" stroke-width="0.5" opacity="0.3"/>
+          <g stroke="#FFF" stroke-width="1"><path d="M56 100 L56 56 L100 56"/><path d="M980 56 L1024 56 L1024 100"/><path d="M1024 980 L1024 1024 L980 1024"/><path d="M100 1024 L56 1024 L56 980"/></g>
+          <circle cx="540" cy="230" r="46" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/><text x="543" y="246" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#FFF" opacity="0.4">C</text>
+          <text x="540" y="480" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="#FFF">&#8220;Some homes are</text>
+          <text x="540" y="555" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="#FFF">inherited.</text>
+          <text x="540" y="630" text-anchor="middle" font-family="Georgia,serif" font-size="52" font-style="italic" fill="#FFF">Others are earned.&#8221;</text>
+          <text x="540" y="762" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="6" fill="#FFF" opacity="0.7">COFIMO REAL ESTATE</text>
+          <text x="540" y="945" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" letter-spacing="4" fill="#FFF" opacity="0.5">@COFIMO.REALESTATE</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>&ldquo;Inherited or earned.&rdquo;</h3><p>Dark inverse &middot; <code>instagram-post-quote-2.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#FDFCF9"/>
+          <text x="540" y="330" text-anchor="middle" font-family="Georgia,serif" font-size="220" fill="#0A0A0A" opacity="0.06">&#8220;</text>
+          <text x="540" y="440" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#0A0A0A">They didn&#8217;t sell us a house.</text>
+          <text x="540" y="504" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#0A0A0A">They introduced us to</text>
+          <text x="540" y="568" text-anchor="middle" font-family="Georgia,serif" font-size="46" font-style="italic" fill="#0A0A0A">where we already belonged.</text>
+          <line x1="470" y1="650" x2="610" y2="650" stroke="#0A0A0A" stroke-width="1"/>
+          <text x="540" y="700" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="4" fill="#0A0A0A" opacity="0.7">A COFIMO CLIENT</text>
+          <text x="540" y="730" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" letter-spacing="3" fill="#0A0A0A" opacity="0.5">BEL AIR, LOS ANGELES</text>
+          <text x="540" y="945" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" letter-spacing="4" fill="#0A0A0A" opacity="0.5">@COFIMO.REALESTATE</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Client testimonial</h3><p>Unframed layout &middot; <code>instagram-post-quote-3.svg</code></p></div>
+    </article>
+  </div>
+</section>
+
+<section class="cat" id="announcements">
+  <div class="cat-head"><h2>Announcements</h2><span class="count">3 examples &middot; 1080&times;1080</span></div>
+  <p class="cat-note">Milestone posts &mdash; launching the brand, closing a deal, and inviting people through the door.</p>
+  <div class="grid">
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="b1" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#221F1A"/><stop offset="60%" stop-color="#0F0E0C"/><stop offset="100%" stop-color="#000"/></radialGradient></defs>
+          <rect width="1080" height="1080" fill="url(#b1)"/>
+          <rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFF" stroke-width="1" opacity="0.35"/>
+          <circle cx="540" cy="400" r="80" fill="none" stroke="#FFF" stroke-width="1.5"/><text x="543" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="82" fill="#FFF">C</text>
+          <text x="540" y="580" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="8" fill="#FFF" opacity="0.75">INTRODUCING</text>
+          <text x="540" y="670" text-anchor="middle" font-family="Georgia,serif" font-size="88" letter-spacing="16" fill="#FFF">COFIMO</text>
+          <text x="540" y="760" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="6" fill="#FFF" opacity="0.7">REAL ESTATE, REDEFINED</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Brand Launch</h3><p><code>instagram-post-brand-launch.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#0A0A0A"/>
+          <g transform="translate(140,560) scale(2)" opacity="0.14"><rect x="40" y="60" width="320" height="8" fill="#FFF"/><rect x="70" y="68" width="260" height="100" fill="#FFF"/><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.6"/></g>
+          <rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFF" stroke-width="1" opacity="0.35"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <rect x="370" y="290" width="340" height="340" fill="none" stroke="#FFF" stroke-width="1.25" transform="rotate(45 540 460)"/>
+          <text x="540" y="480" text-anchor="middle" font-family="Georgia,serif" font-size="72" letter-spacing="10" fill="#FFF">SOLD</text>
+          <text x="540" y="740" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#FFF">128 Ocean Terrace</text>
+          <line x1="470" y1="775" x2="610" y2="775" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+          <text x="540" y="815" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="4" fill="#FFF" opacity="0.75">REPRESENTED BY COFIMO</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Just Sold</h3><p><code>instagram-post-just-sold.svg</code></p></div>
+    </article>
+
+    <article class="card">
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#0A0A0A"/>
+          <g transform="translate(140,560) scale(2)" opacity="0.14"><rect x="40" y="60" width="320" height="8" fill="#FFF"/><rect x="70" y="68" width="260" height="100" fill="#FFF"/><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.6"/></g>
+          <rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFF" stroke-width="1" opacity="0.35"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <rect x="370" y="290" width="340" height="340" fill="none" stroke="#FFF" stroke-width="1.25" transform="rotate(45 540 460)"/>
+          <text x="540" y="470" text-anchor="middle" font-family="Georgia,serif" font-size="46" letter-spacing="4" fill="#FFF">OPEN</text>
+          <text x="540" y="518" text-anchor="middle" font-family="Georgia,serif" font-size="46" letter-spacing="4" fill="#FFF">HOUSE</text>
+          <text x="540" y="730" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">128 Ocean Terrace</text>
+          <line x1="470" y1="762" x2="610" y2="762" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+          <text x="540" y="802" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="2" fill="#FFF" opacity="0.85">SATURDAY, JULY 12 &#183; 1&#8211;4 PM</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Open House</h3><p><code>instagram-post-open-house.svg</code></p></div>
+    </article>
+  </div>
+</section>
+
+<section class="cat" id="stories">
+  <div class="cat-head"><h2>Stories</h2><span class="count">2 examples &middot; 1080&times;1920</span></div>
+  <p class="cat-note">Vertical formats with progress dashes and a bottom card for the CTA.</p>
+  <div class="grid stories">
+    <article class="card story">
+      <div class="art">
+        <svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="c1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2E2C27"/><stop offset="60%" stop-color="#141311"/><stop offset="100%" stop-color="#050505"/></linearGradient></defs>
+          <rect width="1080" height="1920" fill="url(#c1)"/>
+          <g fill="#FFF"><rect x="60" y="48" width="290" height="3" opacity="0.9"/><rect x="364" y="48" width="290" height="3" opacity="0.4"/><rect x="668" y="48" width="290" height="3" opacity="0.4"/></g>
+          <circle cx="540" cy="130" r="26" fill="none" stroke="#FFF" stroke-width="1"/><text x="542" y="139" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#FFF">C</text>
+          <g transform="translate(140,1120) scale(2.9)"><g transform="translate(0,180) scale(1,-1)" opacity="0.16"><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="70" fill="#050505"/></g><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.5" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#050505"/><rect x="199" y="168" width="2" height="12" fill="#050505"/><rect x="299" y="168" width="2" height="12" fill="#050505"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g><line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/><ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/></g>
+          <rect x="0" y="1560" width="1080" height="360" fill="#0A0A0A"/>
+          <rect x="534" y="1608" width="12" height="12" fill="#FFF" transform="rotate(45 540 1614)"/>
+          <text x="540" y="1700" text-anchor="middle" font-family="Georgia,serif" font-size="50" fill="#FFF">Now Available</text>
+          <text x="540" y="1750" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="4" fill="#FFF" opacity="0.7">EXCLUSIVE LISTINGS, BY INVITATION</text>
+          <text x="540" y="1880" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="4" fill="#FFF" opacity="0.85">SWIPE UP</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Now Available</h3><p><code>instagram-story.svg</code></p></div>
+    </article>
+
+    <article class="card story">
+      <div class="art">
+        <svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="c2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#332F27"/><stop offset="60%" stop-color="#17150F"/><stop offset="100%" stop-color="#050505"/></linearGradient></defs>
+          <rect width="1080" height="1920" fill="url(#c2)"/>
+          <g fill="#FFF"><rect x="60" y="48" width="470" height="3" opacity="0.9"/><rect x="544" y="48" width="470" height="3" opacity="0.4"/></g>
+          <circle cx="540" cy="130" r="26" fill="none" stroke="#FFF" stroke-width="1"/><text x="542" y="139" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#FFF">C</text>
+          <text x="540" y="230" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="5" fill="#FFF" opacity="0.7">JUST LISTED</text>
+          <g transform="translate(90,880) scale(3.15)"><g transform="translate(0,180) scale(1,-1)" opacity="0.16"><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="70" fill="#050505"/></g><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.5" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#050505"/><rect x="199" y="168" width="2" height="12" fill="#050505"/><rect x="299" y="168" width="2" height="12" fill="#050505"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g><line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/><ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/></g>
+          <rect x="0" y="1560" width="1080" height="360" fill="#0A0A0A"/>
+          <text x="540" y="1650" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#FFF">Ocean Terrace House</text>
+          <text x="540" y="1690" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#FFF" opacity="0.7">Malibu, California</text>
+          <rect x="290" y="1740" width="500" height="66" fill="none" stroke="#FFF" stroke-width="1"/>
+          <text x="540" y="1782" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="3" fill="#FFF">VIEW LISTING</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Just Listed</h3><p><code>instagram-story-2.svg</code></p></div>
+    </article>
+  </div>
+</section>
+
+<section class="cat" id="carousel">
+  <div class="cat-head"><h2>Listing Carousel</h2><span class="count">3 slides &middot; 1080&times;1080</span></div>
+  <p class="cat-note">One listing, told in three swipes: the cover, the interior specification, and
+  the floor plan &mdash; each carrying its own pagination dots so the sequence reads correctly
+  even out of context.</p>
+  <div class="filmstrip">
+    <div class="slide">
+      <span class="tag">1 / 3 &middot; COVER</span>
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="d1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2E2C27"/><stop offset="55%" stop-color="#151412"/><stop offset="100%" stop-color="#050505"/></linearGradient></defs>
+          <rect width="1080" height="1080" fill="url(#d1)"/>
+          <g transform="translate(90,370) scale(2.35)"><g transform="translate(0,180) scale(1,-1)" opacity="0.16"><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="70" fill="#050505"/></g><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.5" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#050505"/><rect x="199" y="168" width="2" height="12" fill="#050505"/><rect x="299" y="168" width="2" height="12" fill="#050505"/><rect x="40" y="60" width="320" height="8" fill="#050505"/><rect x="70" y="68" width="260" height="100" fill="#050505"/><g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g><line x1="350" y1="168" x2="350" y2="180" stroke="#050505" stroke-width="2"/><ellipse cx="350" cy="158" rx="9" ry="17" fill="#050505"/></g>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <text x="540" y="960" text-anchor="middle" font-family="Georgia,serif" font-size="40" letter-spacing="4" fill="#FFF">PARKVIEW RESIDENCE</text>
+          <text x="540" y="1000" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="4" fill="#FFF" opacity="0.7">SWIPE TO EXPLORE &#8594;</text>
+          <circle cx="516" cy="1044" r="4" fill="#FFF"/><circle cx="540" cy="1044" r="4" fill="#FFF" opacity="0.35"/><circle cx="564" cy="1044" r="4" fill="#FFF" opacity="0.35"/>
+        </svg>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="tag">2 / 3 &middot; DETAILS</span>
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#0A0A0A"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <g stroke="#FFF" stroke-width="1" opacity="0.6"><rect x="660" y="230" width="300" height="610"/><line x1="810" y1="230" x2="810" y2="840"/><line x1="660" y1="433" x2="960" y2="433"/><line x1="660" y1="636" x2="960" y2="636"/></g>
+          <line x1="140" y1="840" x2="960" y2="840" stroke="#FFF" stroke-width="1" opacity="0.35"/>
+          <text x="140" y="360" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="5" fill="#FFF" opacity="0.6">02 &#47; 03</text>
+          <text x="136" y="420" font-family="Georgia,serif" font-size="46" fill="#FFF">Interior</text>
+          <text x="136" y="470" font-family="Georgia,serif" font-size="46" fill="#FFF">Details</text>
+          <g font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#FFF" opacity="0.85"><rect x="140" y="537" width="7" height="7" fill="#FFF" transform="rotate(45 143 540)"/><text x="164" y="547">Book-matched Italian marble</text><rect x="140" y="577" width="7" height="7" fill="#FFF" transform="rotate(45 143 580)"/><text x="164" y="587">12-foot ceilings throughout</text><rect x="140" y="617" width="7" height="7" fill="#FFF" transform="rotate(45 143 620)"/><text x="164" y="627">Integrated smart-home system</text></g>
+          <circle cx="516" cy="990" r="4" fill="#FFF" opacity="0.35"/><circle cx="540" cy="990" r="4" fill="#FFF"/><circle cx="564" cy="990" r="4" fill="#FFF" opacity="0.35"/>
+        </svg>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="tag">3 / 3 &middot; SPEC</span>
+      <div class="art">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#0A0A0A"/>
+          <circle cx="90" cy="90" r="30" fill="none" stroke="#FFF" stroke-width="1"/><text x="93" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#FFF">C</text>
+          <text x="1000" y="96" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#FFF" opacity="0.85">COFIMO</text>
+          <text x="140" y="200" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="5" fill="#FFF" opacity="0.6">03 &#47; 03</text>
+          <text x="136" y="248" font-family="Georgia,serif" font-size="40" fill="#FFF">Floor Plan &amp; Specification</text>
+          <g stroke="#FFF" stroke-width="1" opacity="0.75"><rect x="140" y="300" width="360" height="520" fill="none"/><line x1="140" y1="480" x2="500" y2="480"/><line x1="140" y1="620" x2="500" y2="620"/><line x1="320" y1="480" x2="320" y2="620"/></g>
+          <g font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#FFF">
+            <text x="620" y="345" opacity="0.6" letter-spacing="2">BEDROOMS</text><text x="960" y="345" text-anchor="end">4</text>
+            <text x="620" y="410" opacity="0.6" letter-spacing="2">BATHROOMS</text><text x="960" y="410" text-anchor="end">5</text>
+            <text x="620" y="475" opacity="0.6" letter-spacing="2">INTERIOR</text><text x="960" y="475" text-anchor="end">6,200 SQ FT</text>
+          </g>
+          <rect x="330" y="900" width="420" height="70" fill="none" stroke="#FFF" stroke-width="1"/>
+          <text x="540" y="943" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="3" fill="#FFF">SCHEDULE A PRIVATE VIEWING</text>
+          <circle cx="516" cy="1044" r="4" fill="#FFF" opacity="0.35"/><circle cx="540" cy="1044" r="4" fill="#FFF" opacity="0.35"/><circle cx="564" cy="1044" r="4" fill="#FFF"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <p class="filmstrip-caption"><code>carousel-slide-1-cover.svg</code> &middot; <code>carousel-slide-2-details.svg</code> &middot; <code>carousel-slide-3-stats.svg</code></p>
+</section>
+
+<section class="cat" id="profile">
+  <div class="cat-head"><h2>Profile &amp; Cover Assets</h2><span class="count">2 examples</span></div>
+  <p class="cat-note">One-per-platform assets: a Facebook page cover and a LinkedIn company banner.</p>
+  <div class="grid wide" style="gap:32px;">
+    <article class="card wide">
+      <div class="art">
+        <svg viewBox="0 0 820 312" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#26241F"/><stop offset="100%" stop-color="#050505"/></linearGradient></defs>
+          <rect width="820" height="312" fill="url(#e1)"/>
+          <g transform="translate(520,90) scale(0.72)" opacity="0.9"><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.8" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#FFF"/><rect x="199" y="168" width="2" height="12" fill="#FFF"/><rect x="299" y="168" width="2" height="12" fill="#FFF"/><rect x="40" y="60" width="320" height="8" fill="#FFF"/><rect x="70" y="68" width="260" height="100" fill="#FFF"/><g fill="#050403" opacity="0.9"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g></g>
+          <text x="60" y="140" font-family="Georgia,serif" font-size="52" letter-spacing="10" fill="#FFF">COFIMO</text>
+          <line x1="62" y1="168" x2="360" y2="168" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+          <text x="60" y="200" font-family="Helvetica,Arial,sans-serif" font-size="16" letter-spacing="5" fill="#FFF" opacity="0.75">REAL ESTATE</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>Facebook Cover</h3><p>820&times;312 &middot; <code>facebook-cover.svg</code></p></div>
+    </article>
+
+    <article class="card wide linkedin">
+      <div class="art">
+        <svg viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="e2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#050505"/><stop offset="55%" stop-color="#161511"/><stop offset="100%" stop-color="#2A2822"/></linearGradient></defs>
+          <rect width="1584" height="396" fill="url(#e2)"/>
+          <rect x="40" y="40" width="1504" height="316" fill="none" stroke="#FFF" stroke-width="1" opacity="0.25"/>
+          <g transform="translate(1080,110) scale(0.95)" opacity="0.9"><line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.7" opacity="0.35"/><rect x="99" y="168" width="2" height="12" fill="#FFF"/><rect x="199" y="168" width="2" height="12" fill="#FFF"/><rect x="299" y="168" width="2" height="12" fill="#FFF"/><rect x="40" y="60" width="320" height="8" fill="#FFF"/><rect x="70" y="68" width="260" height="100" fill="#FFF"/><g fill="#050403" opacity="0.9"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g></g>
+          <circle cx="140" cy="160" r="34" fill="none" stroke="#FFF" stroke-width="1.25"/><text x="143" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#FFF">C</text>
+          <text x="210" y="180" font-family="Georgia,serif" font-size="58" letter-spacing="12" fill="#FFF">COFIMO</text>
+          <line x1="212" y1="212" x2="620" y2="212" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+          <text x="210" y="248" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="5" fill="#FFF" opacity="0.8">REAL ESTATE, REPRESENTED WITH PRECISION</text>
+        </svg>
+      </div>
+      <div class="meta"><h3>LinkedIn Banner</h3><p>1584&times;396 &middot; <code>linkedin-banner.svg</code></p></div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <span>Cofimo &copy; 2026 &mdash; Social Media Templates</span>
+  <span>All source files in <code>/branding/social-media</code></span>
+</footer>
