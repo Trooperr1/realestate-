@@ -298,21 +298,6 @@
     white-space: nowrap;
   }
 
-  .voice-grid{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 32px;
-    margin-top: 32px;
-  }
-  @media (max-width: 720px){ .voice-grid{ grid-template-columns: 1fr; } }
-  .voice-card{ border: 1px solid var(--line); padding: 28px; }
-  .voice-card h4{
-    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-    margin: 0 0 16px; color: var(--ink-faint);
-  }
-  .voice-card ul{ margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .voice-card li{ font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
-
   /* ---------- Applications ---------- */
   .app-grid{
     display: grid;
@@ -353,9 +338,7 @@
       <li><a href="#clearspace">Clear Space &amp; Misuse</a></li>
       <li><a href="#color">Color Palette</a></li>
       <li><a href="#type">Typography</a></li>
-      <li><a href="#voice">Voice &amp; Tone</a></li>
       <li><a href="#applications">Applications</a></li>
-      <li><a href="#website">Website Template</a></li>
     </ol>
   </nav>
 
@@ -373,7 +356,7 @@
         </svg>
         <h1 class="cover-word">COFIMO</h1>
         <div class="cover-rule"><span></span><i></i><span></span></div>
-        <p class="cover-tag">Luxury Real Estate</p>
+        <p class="cover-tag">Real Estate</p>
       </div>
       <div class="cover-bottom">
         <span>Black &amp; White Identity System</span>
@@ -455,7 +438,7 @@
       <h2>Wordmark &amp; monogram.</h2>
       <p style="margin-bottom:40px;">
         The primary lockup pairs the COFIMO wordmark, set in a serif at wide tracking, with a
-        single diamond mark and the &ldquo;Luxury Real Estate&rdquo; descriptor. The monogram is a
+        single diamond mark and the &ldquo;Real Estate&rdquo; descriptor. The monogram is a
         reduction for spaces too small for the full lockup &mdash; social avatars, favicons, cufflink-scale
         signage.
       </p>
@@ -463,13 +446,13 @@
       <div class="specimen-grid">
         <div>
           <div class="specimen on-light">
-            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#0A0A0A">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#0A0A0A"/><rect x="394" y="166" width="12" height="12" fill="#0A0A0A" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#0A0A0A"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#0A0A0A">LUXURY REAL ESTATE</text></svg>
+            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#0A0A0A">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#0A0A0A"/><rect x="394" y="166" width="12" height="12" fill="#0A0A0A" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#0A0A0A"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#0A0A0A">REAL ESTATE</text></svg>
           </div>
           <p class="specimen-caption">Primary wordmark &mdash; on light</p>
         </div>
         <div>
           <div class="specimen on-dark">
-            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#FFFFFF">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#FFFFFF"/><rect x="394" y="166" width="12" height="12" fill="#FFFFFF" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#FFFFFF"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#FFFFFF">LUXURY REAL ESTATE</text></svg>
+            <svg viewBox="0 0 800 240"><text x="400" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="20" fill="#FFFFFF">COFIMO</text><line x1="210" y1="172" x2="378" y2="172" stroke="#FFFFFF"/><rect x="394" y="166" width="12" height="12" fill="#FFFFFF" transform="rotate(45 400 172)"/><line x1="422" y1="172" x2="590" y2="172" stroke="#FFFFFF"/><text x="400" y="208" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19" letter-spacing="7" fill="#FFFFFF">REAL ESTATE</text></svg>
           </div>
           <p class="specimen-caption">Reverse wordmark &mdash; on dark</p>
         </div>
@@ -552,35 +535,12 @@
         <div class="type-row"><span class="sample" style="font-size:44px;">Aa Estate</span><span class="meta">Serif / Display / 44&ndash;96px</span></div>
         <div class="type-row"><span class="sample" style="font-size:28px;">Parkview Residence</span><span class="meta">Serif / Headline / 24&ndash;32px</span></div>
         <div class="type-row"><span style="font-size:17px;">Four bedrooms, five baths, 6,200 square feet of considered space.</span><span class="meta">Sans / Body / 15&ndash;17px</span></div>
-        <div class="type-row"><span style="font-size:13px; letter-spacing:0.14em; text-transform:uppercase;">Luxury Real Estate</span><span class="meta">Sans / Eyebrow / 12&ndash;13px, +0.14em</span></div>
+        <div class="type-row"><span style="font-size:13px; letter-spacing:0.14em; text-transform:uppercase;">Real Estate</span><span class="meta">Sans / Eyebrow / 12&ndash;13px, +0.14em</span></div>
       </div>
     </section>
 
-    <section id="voice">
-      <p class="kicker">07 &middot; Voice &amp; Tone</p>
-      <h2>Understated, never inflated.</h2>
-      <div class="voice-grid">
-        <div class="voice-card">
-          <h4>We say</h4>
-          <ul>
-            <li>&ldquo;A residence for those who have stopped compromising.&rdquo;</li>
-            <li>&ldquo;Offered at $8,950,000.&rdquo;</li>
-            <li>&ldquo;By private viewing.&rdquo;</li>
-          </ul>
-        </div>
-        <div class="voice-card">
-          <h4>We don&rsquo;t say</h4>
-          <ul>
-            <li>&ldquo;Amazing deal, won&rsquo;t last long!!&rdquo;</li>
-            <li>&ldquo;Cheap price for luxury home.&rdquo;</li>
-            <li>Exclamation points, emoji, or discount language.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="applications">
-      <p class="kicker">08 &middot; Applications</p>
+    <section id="applications" style="border-bottom:none;">
+      <p class="kicker">07 &middot; Applications</p>
       <h2>Social media templates.</h2>
       <p style="margin-bottom:36px;">Nine formats live in <code>/branding/social-media</code> &mdash;
       feed posts, a 3-slide listing carousel, a story, a Facebook cover, and a LinkedIn banner &mdash;
@@ -592,11 +552,11 @@
           <figcaption>Instagram post &mdash; New Listing</figcaption>
         </figure>
         <figure class="app-card">
-          <svg viewBox="0 0 1080 1080"><rect width="1080" height="1080" fill="#FDFCF9"/><rect x="56" y="56" width="968" height="968" fill="none" stroke="#0A0A0A"/><g stroke="#0A0A0A"><path d="M56 100 L56 56 L100 56"/><path d="M980 56 L1024 56 L1024 100"/><path d="M1024 980 L1024 1024 L980 1024"/><path d="M100 1024 L56 1024 L56 980"/></g><circle cx="540" cy="230" r="46" fill="none" stroke="#0A0A0A" opacity="0.35"/><text x="543" y="246" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#0A0A0A" opacity="0.35">C</text><text x="540" y="470" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">&#8220;Home is not a</text><text x="540" y="548" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">place. It is a</text><text x="540" y="626" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-style="italic" fill="#0A0A0A">standard.&#8221;</text><text x="540" y="762" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="6" fill="#0A0A0A" opacity="0.7">COFIMO LUXURY REAL ESTATE</text></svg>
+          <svg viewBox="0 0 1080 1080"><rect width="1080" height="1080" fill="#FDFCF9"/><rect x="56" y="56" width="968" height="968" fill="none" stroke="#0A0A0A"/><g stroke="#0A0A0A"><path d="M56 100 L56 56 L100 56"/><path d="M980 56 L1024 56 L1024 100"/><path d="M1024 980 L1024 1024 L980 1024"/><path d="M100 1024 L56 1024 L56 980"/></g><circle cx="540" cy="230" r="46" fill="none" stroke="#0A0A0A" opacity="0.35"/><text x="543" y="246" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#0A0A0A" opacity="0.35">C</text><text x="540" y="470" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">&#8220;Home is not a</text><text x="540" y="548" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#0A0A0A">place. It is a</text><text x="540" y="626" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-style="italic" fill="#0A0A0A">standard.&#8221;</text><text x="540" y="762" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" letter-spacing="6" fill="#0A0A0A" opacity="0.7">COFIMO REAL ESTATE</text></svg>
           <figcaption>Instagram post &mdash; Brand Quote</figcaption>
         </figure>
         <figure class="app-card">
-          <svg viewBox="0 0 1080 1080"><defs><radialGradient id="g3" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#221F1A"/><stop offset="60%" stop-color="#0F0E0C"/><stop offset="100%" stop-color="#000"/></radialGradient></defs><rect width="1080" height="1080" fill="url(#g3)"/><rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFF" opacity="0.35"/><circle cx="540" cy="400" r="80" fill="none" stroke="#FFF" stroke-width="1.5"/><text x="543" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="82" fill="#FFF">C</text><text x="540" y="580" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="8" fill="#FFF" opacity="0.75">INTRODUCING</text><text x="540" y="670" text-anchor="middle" font-family="Georgia,serif" font-size="88" letter-spacing="16" fill="#FFF">COFIMO</text><text x="540" y="760" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="6" fill="#FFF" opacity="0.7">LUXURY REAL ESTATE, REDEFINED</text></svg>
+          <svg viewBox="0 0 1080 1080"><defs><radialGradient id="g3" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#221F1A"/><stop offset="60%" stop-color="#0F0E0C"/><stop offset="100%" stop-color="#000"/></radialGradient></defs><rect width="1080" height="1080" fill="url(#g3)"/><rect x="60" y="60" width="960" height="960" fill="none" stroke="#FFF" opacity="0.35"/><circle cx="540" cy="400" r="80" fill="none" stroke="#FFF" stroke-width="1.5"/><text x="543" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="82" fill="#FFF">C</text><text x="540" y="580" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="8" fill="#FFF" opacity="0.75">INTRODUCING</text><text x="540" y="670" text-anchor="middle" font-family="Georgia,serif" font-size="88" letter-spacing="16" fill="#FFF">COFIMO</text><text x="540" y="760" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="6" fill="#FFF" opacity="0.7">REAL ESTATE, REDEFINED</text></svg>
           <figcaption>Instagram post &mdash; Brand Launch</figcaption>
         </figure>
         <figure class="app-card">
@@ -608,36 +568,6 @@
       interior details, floor plan &amp; specification), a vertical <strong>Instagram story</strong>
       with progress dashes and a swipe-up card, a <strong>Facebook cover</strong>, and a
       <strong>LinkedIn banner</strong> &mdash; each reusing the same mark, grain, and dusk gradient.</p>
-    </section>
-
-    <section id="website" style="border-bottom:none;">
-      <p class="kicker">09 &middot; Website Template</p>
-      <h2>A homepage built the same way.</h2>
-      <p style="margin-bottom:32px;">
-        <code>/branding/website/homepage.html</code> carries the identity into a full site: a
-        cinematic dusk-skyline hero (an extended version of the Estate Mark), featured listings
-        using the same illustration language as the social templates, a credibility stat band, and
-        a footer &mdash; open the file in a browser to see it live and to scroll through the nav's
-        scroll-triggered state change.
-      </p>
-      <div class="specimen on-dark" style="padding:0; overflow:hidden;">
-        <svg viewBox="0 0 1600 900" style="max-width:100%;">
-          <defs>
-            <linearGradient id="gwh" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#332F27"/><stop offset="55%" stop-color="#17150F"/><stop offset="100%" stop-color="#08070A"/></linearGradient>
-          </defs>
-          <rect width="1600" height="900" fill="url(#gwh)"/>
-          <g transform="translate(700,312) scale(1.4)">
-            <line x1="0" y1="180" x2="400" y2="180" stroke="#FFF" stroke-width="0.5" opacity="0.3"/>
-            <rect x="40" y="60" width="320" height="8" fill="#050403"/>
-            <rect x="70" y="68" width="260" height="100" fill="#050403"/>
-            <g fill="#F5F3EC" opacity="0.85"><rect x="84" y="80" width="28" height="56"/><rect x="126" y="80" width="28" height="56"/><rect x="168" y="80" width="28" height="56"/><rect x="252" y="80" width="28" height="56"/><rect x="294" y="80" width="28" height="56"/></g>
-          </g>
-          <rect x="1350" y="360" width="70" height="260" fill="#050403"/>
-          <g fill="#F5F3EC" opacity="0.8"><rect x="1360" y="376" width="12" height="16"/><rect x="1382" y="376" width="12" height="16"/><rect x="1360" y="408" width="12" height="16"/><rect x="1382" y="440" width="12" height="16"/><rect x="1360" y="472" width="12" height="16"/><rect x="1382" y="472" width="12" height="16"/></g>
-          <text x="90" y="560" font-family="Georgia,serif" font-size="96" fill="#F5F3EC">Real estate,</text>
-          <text x="90" y="670" font-family="Georgia,serif" font-size="96" fill="#F5F3EC">considered.</text>
-        </svg>
-      </div>
     </section>
 
     <footer>

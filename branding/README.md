@@ -1,12 +1,12 @@
-# Cofimo — Luxury Real Estate Brand Identity
+# Cofimo — Real Estate Brand Identity
 
 A complete black-and-white brand identity for Cofimo.
 
 ## Contents
 
 - **`brand-guidelines.html`** — the full brand book: positioning, the reasoning behind every
-  logo decision, logo system, clear space and misuse rules, color palette, typography, voice &
-  tone, application previews, and a website preview. Open it directly in a browser.
+  logo decision, logo system, clear space and misuse rules, color palette, typography, and
+  application previews. Open it directly in a browser.
 - **`logo/`** — logo files
   - `cofimo-wordmark-black.svg` — primary wordmark, for light backgrounds
   - `cofimo-wordmark-white.svg` — reverse wordmark, for dark backgrounds
@@ -23,7 +23,7 @@ A complete black-and-white brand identity for Cofimo.
   - `instagram-story.svg` — 1080×1920, story template with progress dashes and a swipe-up card
   - `facebook-cover.svg` — 820×312, page cover banner
   - `linkedin-banner.svg` — 1584×396, company/profile banner
-- **`website/homepage.html`** — a full self-contained luxury real-estate homepage: sticky nav
+- **`website/homepage.html`** — a full self-contained real-estate homepage: sticky nav
   with scroll-triggered state, a cinematic dusk-skyline hero, featured listings, a credibility
   stat band, a testimonial, a journal teaser, and a footer with newsletter signup. Open directly
   in a browser; adapts to the viewer's light/dark preference (the hero stays cinematic-dark by
